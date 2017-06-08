@@ -1,0 +1,74 @@
+// Variables
+@import "variables";
+
+//Buttons
+.__btn{
+	border-radius: 2px;
+	border:none;
+	text-transform:uppercase;
+}
+.__btn-cta{
+	font-size:12px;
+	// width:100%;
+}
+.__btn-blue{
+	background: $gabedi-main;
+	color:white;
+	&:hover{
+		background: $gabedi-dark-accent;
+		color:white;
+	}
+}
+
+.__btn-blue-outline{
+	border:1px solid $gabedi-main;
+	color:$gabedi-main;
+	background:white;
+	&:hover{
+		color:$gabedi-main;
+	}
+}
+
+.__btn-green{
+	background: $gabedi-green;
+	color:white;
+	&:hover{
+		background: $gabedi-dark-green;
+		color:white;
+	}
+}
+//Form Elements-----------------------------------------
+//Inputs
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"]{
+	border:1px solid $gabedi-light-accent;
+	border-radius:2px;
+	&:focus{
+		box-shadow: none;
+		border:1px solid $gabedi-main;
+	}
+	&:active{
+		box-shadow: none;
+		border:1px solid $gabedi-main;
+	}
+}
+//Textearea
+.__textarea{
+	border:1px solid $gabedi-light-accent ;
+	border-radius:1px ;
+	&:focus{
+		box-shadow: none ;
+		border:1px solid $gabedi-main ;
+	}
+	&:active{
+		box-shadow: none ;
+		border:1px solid $gabedi-main ;
+	}
+}
+
+//Panels
+.__panel{
+	border-radius:0;
+}
