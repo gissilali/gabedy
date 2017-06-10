@@ -74,20 +74,29 @@
             .logo > img{
                 width:100%;
             }
+            #day{
+                position: relative;
+                  top: 25px; /* 25% of parent */
+                  font-size: 50px; /* 50% of parent */
+                  line-height: 50px; /* 50% of parent */
+                  color: #000;
+                  font-family: "Courier New", monospace;
+                  font-weight: bold;
+            }
+            .circle{
+                width: 100px;
+                  height: 100px;
+                  background-color:white;
+                  text-align: center;
+                  border-radius: 50%;
+                  -webkit-border-radius: 50%;
+                  -moz-border-radius: 50%;
+                  margin:0 auto;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
 
             <div class="content">
                 <div class="logo">
@@ -100,12 +109,24 @@
                     <h1>coming soon</h1>
                 </div>
                 <div class="links">
-                    <a href="#"><span id="days" class="circle">28</span> Days</a>
-                    <a href="#"><span id="hours" class="circle">3</span> Hours</a>
-                    <a href="#"><span id="minutes" class="circle">34</span> Minutes</a>
-                    <a href="#"><span id="seconds" class="circle">20</span> Seconds</a>
+                    <div class="circle">
+                        <span id="day" class="circle"></span>
+                    </div>
+                    <p style="text-transform: uppercase;font-weight: bold; font-size:24px;padding-top:5px;color:#2ab27b;">Days</p>
+                    <div id="getting-started"></div>
                 </div>
             </div>
         </div>
+
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/jquery-countdown.min.js') }}"></script>
+        <script type="text/javascript">
+              $("#day")
+              .countdown("2017/06/30", function(event) {
+                $(this).text(
+                  event.strftime('%D')
+                );
+              });
+        </script>
     </body>
 </html>

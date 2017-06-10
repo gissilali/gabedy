@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./functions');
 
 window.Vue = require('vue');
 
@@ -19,16 +20,4 @@ Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
     el: '#app'
-});
-
-$(document).ready(function(){
-	var windowHeight = $(window).height();
-	$(window).scroll(function(){
-		var scrollTop = $(window).scrollTop();
-		if(scrollTop > windowHeight+500){
-			$('.gabedi-header').addClass('black');
-		} else if(scrollTop < windowHeight+50){
-			$('.gabedi-header').removeClass('black');
-		}
-	})
 });

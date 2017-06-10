@@ -8,12 +8,6 @@ body{
 	position:relative;
 }
 //Header Styles
-.hero{
-	margin-top:0;
-	position:relative;
-	width:100%;
-	height:100vh;
-}
 .gabedi-header{
 	height: 70px;
 	background: $gabedi-green;
@@ -57,6 +51,73 @@ body{
 				}
 			}
 		}
+		.profile-img{
+		    margin-top: -13px;
+		    margin-right: 5px;
+		    float: left;
+		    width: 48px;
+		    height: 48px;
+		    border-radius:50%;
+		    text-align:center;
+		}
+		.initials{
+			position: relative;
+          	top: 12.5px; /* 25% of parent */
+            font-size: 25px; /* 50% of parent */
+            line-height: 25px; /* 50% of parent */
+            color: #000;
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+		}
+		.nav .open > a{
+			background:transparent;
+		}
+		.__nav-bar{
+			li{
+				a{
+					color:white;
+					&:hover{
+					background:transparent !important;
+					}
+					&:focus{
+					background:transparent !important;
+					}
+					&:active{
+						background:transparent !important;
+					}
+				}
+				background:transparent !important;
+			}
+		}
+		.__dropdown-menu{
+			padding:0;
+			border-radius:5px;
+			&:before{
+				content: '';
+				position: absolute;
+				top:0;
+				left:50%;
+				width:0;
+				height:0;
+				border:5px solid transparent;
+				border-bottom-color: #D3E0E9;
+				border-top:0;
+				margin-left:-5px;
+				margin-top:-5px;
+			}
+			.__dropdown-header{
+				padding-left:10px;
+				background:  #D3E0E9 !important;
+
+			}
+			li{
+				padding:5px;
+				padding-left:10px;
+				a{
+					color:#333;
+				}
+			}
+		}
 	}
 
 	.search-bar{
@@ -64,10 +125,17 @@ body{
 		display:block;
 		padding-top:15px;
 		padding-bottom:15px;
+		.input.hide-input{
+			width:0px;
+		}
+		.input.show-input{
+			width:auto;
+		}
 		.input{
 			float:right;
 			overflow: hidden;
-			width:0px;
+			transition:all 1400;
+			max-width:120px;
 			input{
 				border:none;
 				box-shadow: none;
@@ -76,7 +144,7 @@ body{
 				background:transparent;
 				font-weight:bold;
 				color:white;
-				border-bottom:2px solid white;
+				border-bottom:1px solid white;
 				&:focus{
 					border:none;
 					box-shadow: none;
@@ -99,14 +167,26 @@ body{
 			button{
 				height:40px;
 				background:transparent;
-				color:white;
+				color:rgba(white,0.6);
 				border:none;
+				transition:all 50ms;
+				&:hover{
+					color:white;
+				}
 			}
+
 		}
 	}
 }
 .gabedi-header.black{
 	background:black;
+}
+//Hero & Banner Styles
+.hero{
+	margin-top:0;
+	position:relative;
+	width:100%;
+	height:100vh;
 }
 .banner{
 	height:100vh;
@@ -242,4 +322,39 @@ footer{
   padding: 1rem;
   background-color: #efefef;
   text-align: center;
+}
+
+//-----------------------------Home Page Styles
+
+//Bookmark Section
+.bookmark-grid-item{
+	border:1px solid $border-grey;
+	.panel-heading{
+		padding:0px 20px;
+		padding-top:20px;
+	}
+	.panel-body{
+		padding:0 20px;
+		padding-top:0;
+		min-height:200px;
+		p{
+			font-weight:300;
+		}
+	}
+	.panel-footer{
+		.bookmark-details{
+			float:left;
+		}
+		.btn-bookmark{
+			float:right;
+			padding:2px;
+			background:transparent;
+			border:none;
+		}
+		.dot-separator{
+			font-size:16px !important;
+			font-weight:bold;
+			padding:5px;
+		}
+	}
 }

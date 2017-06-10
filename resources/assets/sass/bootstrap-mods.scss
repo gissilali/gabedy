@@ -72,3 +72,12 @@ input[type="number"]{
 .__panel{
 	border-radius:0;
 }
+
+//Error Classes
+.__has-error .form-control {
+    border-color:$brand-danger;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.__has-error .help-block{
+	color:$brand-danger;
+}

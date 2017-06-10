@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -471,7 +471,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
 /* 2 */
@@ -776,8 +776,9 @@ module.exports = g;
  */
 
 __webpack_require__(31);
+__webpack_require__(32);
 
-window.Vue = __webpack_require__(39);
+window.Vue = __webpack_require__(40);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -785,22 +786,10 @@ window.Vue = __webpack_require__(39);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(36));
+Vue.component('example', __webpack_require__(37));
 
 var app = new Vue({
   el: '#app'
-});
-
-$(document).ready(function () {
-  var windowHeight = $(window).height();
-  $(window).scroll(function () {
-    var scrollTop = $(window).scrollTop();
-    if (scrollTop > windowHeight + 500) {
-      $('.gabedi-header').addClass('black');
-    } else if (scrollTop < windowHeight + 50) {
-      $('.gabedi-header').removeClass('black');
-    }
-  });
 });
 
 /***/ }),
@@ -1696,7 +1685,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(34);
+window._ = __webpack_require__(35);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1705,9 +1694,9 @@ window._ = __webpack_require__(34);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(33);
+  window.$ = window.jQuery = __webpack_require__(34);
 
-  __webpack_require__(32);
+  __webpack_require__(33);
 } catch (e) {}
 
 /**
@@ -1751,6 +1740,61 @@ if (token) {
 
 /***/ }),
 /* 32 */
+/***/ (function(module, exports) {
+
+/**
+ * Sticky Header Function
+ * @param  {fuck parameters bitch!!} ){	var windowHeight  Height of the viewport
+ * @return {return what?}     
+ */
+$(document).ready(function () {
+	var windowHeight = $(window).height();
+	$(window).scroll(function () {
+		var scrollTop = $(window).scrollTop();
+		if (scrollTop > windowHeight + 500) {
+			$('.gabedi-header').addClass('black');
+		} else if (scrollTop < windowHeight + 50) {
+			$('.gabedi-header').removeClass('black');
+		}
+	});
+});
+/**
+ * Show-Hide Password Toggle
+ * @param  {[type]} ){	var hidePassword  State of Password
+ * @return {[type]}         [description]
+ */
+$(document).ready(function () {
+	var passwordHidden = true;
+	$('.show-password').click(function () {
+		if (passwordHidden) {
+			passwordHidden = false;
+			$('#password').attr('type', 'text');
+			$('.show-password i').removeClass('fa-eye').addClass('fa-eye-slash');
+		} else {
+			passwordHidden = true;
+			$('#password').attr('type', 'password');
+			$('.show-password i').removeClass('fa-eye-slash').addClass('fa-eye');
+		}
+		console.log(passwordHidden);
+	});
+});
+
+$(document).ready(function ($) {
+	var inputHidden = true;
+	$('.search-btn').click(function (event) {
+		event.preventDefault();
+		if (inputHidden) {
+			inputHidden = false;
+			$('.input').removeClass('hide-input').addClass('show-input');
+		} else {
+			inputHidden = true;
+			$('.input').removeClass('show-input').addClass('hide-input');
+		}
+	});
+});
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports) {
 
 /*!
@@ -4133,7 +4177,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14393,7 +14437,7 @@ return jQuery;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31482,10 +31526,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(40)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(41)(module)))
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -31675,14 +31719,14 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(37)(
+var Component = __webpack_require__(38)(
   /* script */
   __webpack_require__(30),
   /* template */
-  __webpack_require__(38),
+  __webpack_require__(39),
   /* scopeId */
   null,
   /* cssModules */
@@ -31709,7 +31753,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 // this module is a runtime utility for cleaner component module output and will
@@ -31766,7 +31810,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -31795,7 +31839,7 @@ if (false) {
 }
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41493,7 +41537,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -41521,7 +41565,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
