@@ -1,0 +1,69 @@
+.slideout{
+	width:0vw;
+	height:100vh;
+	overflow:auto;
+	position:fixed;
+	z-index:10000;
+	background: white;
+	max-width:300px;
+	-webkit-box-shadow: 12px 0px 12px -8px rgba(0,0,0,0.2);
+	-moz-box-shadow: 12px 0px 12px -8px rgba(0,0,0,0.2);
+	box-shadow: 12px 0px 12px -8px rgba(0,0,0,0.2);
+	border-right: 1px solid rgba(0,0,0,0.2);
+	transition:all 300ms;
+	margin-left:-10px;
+}
+.slideout.slideout-open{
+	width:90vw;
+	height:100vh;
+	transition:all 300ms;
+	margin-left:0;
+}
+.slideout-header{
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	padding:30px;
+	width:100%;
+	position:relative;
+	.close-button{
+		position:absolute;
+		right:10px;
+		top:10px;
+		border:none;
+		background:none;
+		color:$gabedi-green;
+	}
+}
+.profile-pic{
+	border-radius:50%;
+	height:40px;
+	width:40px;
+	background:gold;
+	display:block;
+	float:left;
+}
+.user-details{
+	display:block;
+	float:left;
+	padding-left:20px;
+	p{
+		margin:0;
+		font-size:12px;
+	}
+}
+.slideout-body,.slideout-footer{
+	padding:20px;
+	.list-group{
+		.list-group-item{
+			border:none;
+			padding:20px;
+			a{
+				text-transform:uppercase;
+				padding:20px;
+				color:$gabedi-green;
+				i,strong{
+					padding:10px;
+				}
+			}
+		}
+	}
+}

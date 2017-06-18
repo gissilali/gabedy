@@ -1,0 +1,36 @@
+.article-image{
+	margin-bottom:25px;
+	img{
+		width:100%;
+		height:auto;
+	}
+}
+.article-details{
+	margin-bottom:25px;
+	font-family: 'Roboto' Light;
+}
+.article-content{
+	font-family: 'Roboto' Light;
+}
+.articles{
+	position:relative;
+	article{
+		margin-top:25px;
+		margin-bottom:25px;
+		padding-bottom:40px;
+	}
+	.section-footer{
+		width:100%;
+		position:relative;
+		position: relative;
+		max-width: 720px;
+		margin: 0 auto;
+		display: block;
+		height: 42px;
+		text-align: center;
+		a{
+			position:relative;
+			margin:0;
+		}
+	}
+}

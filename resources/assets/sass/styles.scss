@@ -8,228 +8,17 @@ body{
 	position:relative;
 }
 //Header Styles
-.gabedi-header{
-	height: 70px;
-	background: $gabedi-green;
-	width:100%;
-	position: fixed;
-	z-index:9000;
-	transition:all 300ms ease-in-out;
-}
-.gabedi-header{
-	.header-l{
-		position:relative;
-		display:block;
-		float:left;
-		.logo{
-			position: absolute;
-		  	top: 50%;
-			height: 50px;
-			margin-top:10px;
-			box-sizing:border-box;
-			img{
-				height:100%;
-			}
-		}
-	}
-
-	.header-r{
-		float:right;
-		nav{
-			padding-top:25px;
-			padding-bottom:25px;
-			float:left;
-			a{
-				text-transform:uppercase;
-				color:white;
-				padding-left:30px;
-				font-size: 12px;
-				font-weight:bold;
-				&:hover{
-					text-decoration: none;
-					color:darken(white,20%);
-				}
-			}
-		}
-		.profile-img{
-		    margin-top: -13px;
-		    margin-right: 5px;
-		    float: left;
-		    width: 48px;
-		    height: 48px;
-		    border-radius:50%;
-		    text-align:center;
-		}
-		.initials{
-			position: relative;
-          	top: 12.5px; /* 25% of parent */
-            font-size: 25px; /* 50% of parent */
-            line-height: 25px; /* 50% of parent */
-            color: #000;
-            font-family: "Courier New", monospace;
-            font-weight: bold;
-		}
-		.nav .open > a{
-			background:transparent;
-		}
-		.__nav-bar{
-			li{
-				a{
-					color:white;
-					&:hover{
-					background:transparent !important;
-					}
-					&:focus{
-					background:transparent !important;
-					}
-					&:active{
-						background:transparent !important;
-					}
-				}
-				background:transparent !important;
-			}
-		}
-		.__dropdown-menu{
-			padding:0;
-			border-radius:5px;
-			&:before{
-				content: '';
-				position: absolute;
-				top:0;
-				left:50%;
-				width:0;
-				height:0;
-				border:5px solid transparent;
-				border-bottom-color: #D3E0E9;
-				border-top:0;
-				margin-left:-5px;
-				margin-top:-5px;
-			}
-			.__dropdown-header{
-				padding-left:10px;
-				background:  #D3E0E9 !important;
-
-			}
-			li{
-				padding:5px;
-				padding-left:10px;
-				a{
-					color:#333;
-				}
-			}
-		}
-	}
-
-	.search-bar{
-		float:left;
-		display:block;
-		padding-top:15px;
-		padding-bottom:15px;
-		.input.hide-input{
-			width:0px;
-		}
-		.input.show-input{
-			width:auto;
-		}
-		.input{
-			float:right;
-			overflow: hidden;
-			transition:all 1400;
-			max-width:120px;
-			input{
-				border:none;
-				box-shadow: none;
-				padding-left:10px;
-				height:40px;
-				background:transparent;
-				font-weight:bold;
-				color:white;
-				border-bottom:1px solid white;
-				&:focus{
-					border:none;
-					box-shadow: none;
-					border-bottom:2px solid white;				
-				}
-				&:active{
-					border:none;
-					box-shadow: none;
-					border-bottom:2px solid white;				
-				}
-				&:hover{
-					border:none;
-					box-shadow: none;
-					border-bottom:2px solid white;
-				}
-			}
-		}
-		.button{
-			float:right;
-			button{
-				height:40px;
-				background:transparent;
-				color:rgba(white,0.6);
-				border:none;
-				transition:all 50ms;
-				&:hover{
-					color:white;
-				}
-			}
-
-		}
-	}
-}
-.gabedi-header.black{
-	background:black;
-}
+@import "components/header";
 //Hero & Banner Styles
-.hero{
-	margin-top:0;
-	position:relative;
-	width:100%;
-	height:100vh;
-}
-.banner{
-	height:100vh;
-	position:fixed;
-	background:white;
-	width:100%;
-	z-index:8000;
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	.banner-content{
-		text-align:center;
-		h1,p{
-			color:white;
-		}
-		.subtitle{
-			font-size:24px;
-			font-family:Playfair Display;
-			font-style: italic;
-			font-weight:300;
-		}
-		.title{
-			font-size:48px;
-			font-weight:700;
-			text-transform:capitalize;
-		}
-		.blurb{
-			max-width:350px;
-			margin-left:25%;
-			font-family:Playfair Display;
-			font-size:18px;
-		}
-	}
-}
-
+@import "components/hero_and_banner";
 //Content Section styles
 .content{
 	background: white;
     position:relative;
     z-index:8500;
-    margin-top: 100vh;
     width: 100%;
     padding-bottom:100px;
+    padding-top:100px;
 }
 .section-title{
 	font-weight: 600;
@@ -252,109 +41,20 @@ body{
 	position:relative;
 }
 //Article Styles
-.article-image{
-	margin-bottom:25px;
-	img{
-		width:100%;
-		height:auto;
-	}
-}
-
-.article-details{
-	margin-bottom:25px;
-	font-family: Playfair Display;
-}
-.article-content{
-	font-family: Playfair Display;
-}
-
-.articles{
-	position:relative;
-	article{
-		margin-top:25px;
-		margin-bottom:25px;
-		padding-bottom:40px;
-		&:after{
-		background:rgba(0,0,0,0.8);
-		content: "";
-	    height: 1px;
-	    width: 100px;
-	    position: absolute;
-	    bottom: 0;
-	    left: 50%;
-	    margin-left: -50px;
-		}
-	}
-}
+/**
+ * This are for articles in list not on cards
+ */
+@import "components/articles";
 //Form page layout styles
-.form-page-centering{
-	align-items: center;
-	display: flex;
-    justify-content: center;
-    height: 100vh;
-    background-size:cover;
-}
-.form-container{
-	.form-logo-heading{
-		padding:20px;
-		.logo-container{
-			width:70px;
-			margin:0 auto;
-			img{
-				width:100%;
-			}
-		}
-	}
-}
-//Form Styles
-.form-panel{
-	.panel-body{
-		padding-bottom:0;
-	}
-}
+@import "components/forms";
 //Footer Styles
-footer{
-  position: absolute;
-  z-index:8600;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-}
+@import "components/footer";
 
 //-----------------------------Home Page Styles
 
 //Bookmark Section
-.bookmark-grid-item{
-	border:1px solid $border-grey;
-	.panel-heading{
-		padding:0px 20px;
-		padding-top:20px;
-	}
-	.panel-body{
-		padding:0 20px;
-		padding-top:0;
-		min-height:200px;
-		p{
-			font-weight:300;
-		}
-	}
-	.panel-footer{
-		.bookmark-details{
-			float:left;
-		}
-		.btn-bookmark{
-			float:right;
-			padding:2px;
-			background:transparent;
-			border:none;
-		}
-		.dot-separator{
-			font-size:16px !important;
-			font-weight:bold;
-			padding:5px;
-		}
-	}
-}
+@import "components/bookmark_section";
+//Loader Animation 
+@import "components/loader";
+//Slideout menu
+@import "components/slideout-menu"

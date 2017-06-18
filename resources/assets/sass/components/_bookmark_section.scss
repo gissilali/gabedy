@@ -1,0 +1,40 @@
+.bookmark.section-heading{
+	h4{
+		float: left;
+	}
+	a{
+		float:right;
+	}
+}
+.bookmark-grid-item{
+	border:1px solid $border-grey;
+	.panel-heading{
+		padding:0px 20px;
+		padding-top:20px;
+	}
+	.panel-body{
+		padding:0 20px;
+		padding-top:0;
+		min-height:200px;
+		p{
+			font-weight:300;
+			font-family:Roboto Light;
+		}
+	}
+	.panel-footer{
+		.bookmark-details{
+			float:left;
+		}
+		.btn-bookmark{
+			float:right;
+			padding:2px;
+			background:transparent;
+			border:none;
+		}
+		.dot-separator{
+			font-size:16px !important;
+			font-weight:bold;
+			padding:5px;
+		}
+	}
+}

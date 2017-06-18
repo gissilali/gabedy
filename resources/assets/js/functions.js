@@ -34,7 +34,11 @@ $(document).ready(function(){
 		console.log(passwordHidden)
 	})
 })
-
+/**
+ * Search input toggle
+ * @param  {boolean} $) {	var        inputHidden State of the input
+ * @return {void}    
+ */
 $(document).ready(function($) {
 	var inputHidden = true;
 	$('.search-btn').click(function(event) {
@@ -46,5 +50,17 @@ $(document).ready(function($) {
 			inputHidden = true;
 			$('.input').removeClass('show-input').addClass('hide-input');
 		}
+	});
+});
+
+$(document).ready(function() {
+	$('.hamburger').click(function(event){
+		event.preventDefault();
+		$('.slideout').toggleClass('slideout-open');
+	});
+
+	$('.close-button').click(function(event) {
+		event.preventDefault();
+		$('.slideout').toggleClass('slideout-open');
 	});
 });

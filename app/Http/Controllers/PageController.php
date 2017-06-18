@@ -29,4 +29,8 @@ class PageController extends Controller
     public function viewPost(){
         return view('html.view-post');
     }
+
+    public function browseArticles(){
+        return view('html.browse-articles');
+    }
 }

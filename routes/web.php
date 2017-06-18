@@ -29,7 +29,8 @@ Route::get('landing', 'PageController@landing');
 Route::get('register', 'PageController@register');
 Route::get('login', 'PageController@login');
 Route::get('posts', 'PageController@posts');
-Route::get('view-post', 'PageController@view-post');
+Route::get('view-post', 'PageController@viewPost');
+Route::get('browse-articles', 'PageController@browseArticles');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -5,41 +5,87 @@
 	{{-- Extract the content section  --}}
 	<section style="">
 		<div class="container" style="padding-top:70px">
-			<h1>Welcome to your homepage</h1>
+			<h1><strong>Welcome to your homepage</strong></h1>
 			<p>See your bookmarked articles, discover new articles and find tutors</p>
 			<div class="col-md-8">
-				<h4><strong>Your Bookmarks</strong></h4>
-				<hr style="border-top:1px solid #D3E0E9">
-				<div class="bookmark-grid">
-					<div class="col-md-6" style="padding-left:0">
-						<div class="bookmark-grid-item panel">
-							<div class="panel-heading">
-								<h4><strong>The Art of Steal</strong></h4>
-							</div>
-							<div class="panel-body">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor odio id natus voluptate eligendi recusandae impedit, aliquid sit, veniam quia necessitatibus, autem eius.</p>
-							</div>
-							<div class="panel-footer clearfix">
-								<div class="bookmark-details">
-									<small class="author"><strong>Nick Babich</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>
+				<div class="bookmark-section">
+					<div class="bookmark section-heading clearfix">
+						<h4><strong>Your Bookmarks</strong></h4>
+						<a href="#" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px">See more</a>
+					</div> 
+					<hr style="border-top:1px solid #D3E0E9;margin:0;margin-bottom:20px">
+					<div class="bookmark-grid">
+						<div class="col-md-6" style="padding-left:0">
+							<div class="bookmark-grid-item panel">
+								<div class="panel-heading">
+									<h4><strong>The Art of Steal</strong></h4>
 								</div>
-								<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+								<div class="panel-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor odio id natus voluptate eligendi recusandae impedit, aliquid sit, veniam quia necessitatibus, autem eius.</p>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="bookmark-details">
+										<small class="author"><strong>Nick Babich</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>
+									</div>
+									<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6" style="padding: 0">
+							<div class="bookmark-grid-item panel">
+								<div class="panel-heading">
+									<h4><strong>The Art of Steal</strong></h4>
+								</div>
+								<div class="panel-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor odio id natus voluptate eligendi recusandae impedit, aliquid sit, veniam quia necessitatibus, autem eius.</p>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="bookmark-details">
+										<small class="author"><strong>Nick Babich</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>
+									</div>
+									<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6" style="padding: 0">
-						<div class="bookmark-grid-item panel">
-							<div class="panel-heading">
-								<h4><strong>The Art of Steal</strong></h4>
-							</div>
-							<div class="panel-body">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor odio id natus voluptate eligendi recusandae impedit, aliquid sit, veniam quia necessitatibus, autem eius.</p>
-							</div>
-							<div class="panel-footer clearfix">
-								<div class="bookmark-details">
-									<small class="author"><strong>Nick Babich</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>
+				</div>
+				<div class="suggested-section">
+					<div class="bookmark section-heading clearfix">
+						<h4><strong>Suggested <small>based on your bookmarks</small></strong></h4>
+						<a href="#" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px">See more</a>
+					</div> 
+					<hr style="border-top:1px solid #D3E0E9;margin:0;margin-bottom:20px">
+					<div class="bookmark-grid">
+						<div class="col-md-6" style="padding-left:0">
+							<div class="bookmark-grid-item panel">
+								<div class="panel-heading">
+									<h4><strong>The Art of Steal</strong></h4>
 								</div>
-								<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+								<div class="panel-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor odio id natus voluptate eligendi recusandae impedit, aliquid sit, veniam quia necessitatibus, autem eius.</p>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="bookmark-details">
+										<small class="author"><strong>Nick Babich</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>
+									</div>
+									<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6" style="padding: 0">
+							<div class="bookmark-grid-item panel">
+								<div class="panel-heading">
+									<h4><strong>The Art of Steal</strong></h4>
+								</div>
+								<div class="panel-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor odio id natus voluptate eligendi recusandae impedit, aliquid sit, veniam quia necessitatibus, autem eius.</p>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="bookmark-details">
+										<small class="author"><strong>Nick Babich</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>
+									</div>
+									<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,45 @@
+.hero{
+	margin-top:0;
+	position:relative;
+	width:100%;
+	height:100vh;
+}
+.banner{
+	height:100vh;
+	position:fixed;
+	background:white;
+	width:100%;
+	z-index:8000;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	.banner-content{
+		text-align:center;
+		h1,p{
+			color:white;
+		}
+		.subtitle{
+			font-size:24px;
+			font-family:Playfair Display;
+			font-style: italic;
+			font-weight:300;
+		}
+		.title{
+			font-size:48px;
+			font-weight:700;
+			text-transform:capitalize;
+		}
+		.blurb{
+			max-width: 350px;
+			margin-left: 25%;
+			font-family: Playfair Display;
+			font-size: 18px;
+			margin-right: 25%;
+			@media (min-width:768px) {
+				font-size:16px;
+				margin-left: 15%;
+				margin-right: 15%;
+			}
+		}
+	}
+}

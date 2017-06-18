@@ -59,7 +59,7 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn __btn __btn-blue">Finish</button>
-                                <p style="margin-top:10px"><small><strong>Already have an account <a href="">login</a></strong></small></p>
+                                <p style="margin-top:10px"><small><strong>If you already have an account <a href="{{ url('login') }}">login</a></strong></small></p>
                             </div>
                         </div>
                     </div>
