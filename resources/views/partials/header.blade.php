@@ -18,7 +18,7 @@
 						</div>
 
 						<div class="input hide-input">
-							<input type="text" name="search_query" id="search">
+							<input type="text" name="search_query" id="search" placeholder="search gabedy">
 						</div>
 					</div>
 				</div>

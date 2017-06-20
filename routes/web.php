@@ -31,6 +31,9 @@ Route::get('login', 'PageController@login');
 Route::get('posts', 'PageController@posts');
 Route::get('view-post', 'PageController@viewPost');
 Route::get('browse-articles', 'PageController@browseArticles');
+Route::get('about', 'PageController@about');
+Route::get('find-tutors', 'PageController@findTutors');
+Route::get('article', 'PageController@article');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

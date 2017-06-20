@@ -14,7 +14,7 @@
 	<div id="app">
 		@include('partials.slideout-menu')
 		@yield('content')
-		@yield('footer')
+		@include('partials.footer')
 	</div>
 	<script src="{{ asset('js/app.js') }}"></script>
 </body>

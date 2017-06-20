@@ -33,4 +33,16 @@ class PageController extends Controller
     public function browseArticles(){
         return view('html.browse-articles');
     }
+
+    public function about(){
+        return view('html.about');
+    }
+
+    public function findTutors(){
+        return view('html.find-tutors');
+    }
+
+    public function article(){
+        return view('html.article');
+    }
 }

@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "edfaaa323f367bc2ba391de384fef48d",
+    "content-hash": "b16cfce71f5f06118fa772803495b54b",
     "packages": [
+        {
+            "name": "actuallymab/laravel-comment",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/actuallymab/laravel-comment.git",
+                "reference": "e8805b3baa4f4fa4eee41e6d5b5cfe336dc65cf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/actuallymab/laravel-comment/zipball/e8805b3baa4f4fa4eee41e6d5b5cfe336dc65cf9",
+                "reference": "e8805b3baa4f4fa4eee41e6d5b5cfe336dc65cf9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": "~0.9.0",
+                "orchestra/database": "3.4.x@dev",
+                "orchestra/testbench": "~3.4",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Actuallymab\\LaravelComment\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehmet Aydin Bahadir",
+                    "email": "mehmet.aydin.bahadir@gmail.com",
+                    "homepage": "http://www.actuallymab.me",
+                    "role": "Software Engineer"
+                }
+            ],
+            "description": "Just another comment system for laravel projects.",
+            "homepage": "https://github.com/actuallymab/laravel-comment",
+            "keywords": [
+                "actuallymab",
+                "laravel-comment"
+            ],
+            "time": "2017-01-31T07:40:27+00:00"
+        },
         {
             "name": "arrilot/laravel-widgets",
             "version": "3.7.0",
@@ -1048,6 +1104,101 @@
             "time": "2016-12-30T18:13:17+00:00"
         },
         {
+            "name": "laravelista/comments",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelista/comments.git",
+                "reference": "ee11a40aa34b63607ace9c54098440ade830e107"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelista/comments/zipball/ee11a40aa34b63607ace9c54098440ade830e107",
+                "reference": "ee11a40aa34b63607ace9c54098440ade830e107",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.2",
+                "illuminate/contracts": "^5.2",
+                "illuminate/database": "^5.2",
+                "illuminate/events": "^5.2",
+                "illuminate/http": "^5.2",
+                "illuminate/queue": "^5.2",
+                "illuminate/routing": "^5.2",
+                "illuminate/support": "^5.2",
+                "laravelista/syndra": "^1.2",
+                "league/fractal": "^0.14.0",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laravelista\\Comments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Bašić",
+                    "email": "mario.basic@outlook.com"
+                }
+            ],
+            "description": "Comments for Laravel.",
+            "keywords": [
+                "comments",
+                "laravel"
+            ],
+            "time": "2017-04-12T11:15:17+00:00"
+        },
+        {
+            "name": "laravelista/syndra",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelista/Syndra.git",
+                "reference": "ec968a1ca23d81cf32b42b4a43cc03a05578b070"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelista/Syndra/zipball/ec968a1ca23d81cf32b42b4a43cc03a05578b070",
+                "reference": "ec968a1ca23d81cf32b42b4a43cc03a05578b070",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^5.1|^4.2",
+                "illuminate/support": "^5.1|^4.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laravelista\\Syndra\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Bašić",
+                    "email": "mario.basic@outlook.com"
+                }
+            ],
+            "description": "Common JSON responses for an API built with Laravel.",
+            "keywords": [
+                "api",
+                "json",
+                "laravel"
+            ],
+            "time": "2016-04-12T12:10:21+00:00"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.40",
             "source": {
@@ -1129,6 +1280,69 @@
                 "storage"
             ],
             "time": "2017-04-28T10:15:08+00:00"
+        },
+        {
+            "name": "league/fractal",
+            "version": "0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/fractal.git",
+                "reference": "56ad8933fbb40328ca3321c84143b2c16186eebf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/56ad8933fbb40328ca3321c84143b2c16186eebf",
+                "reference": "56ad8933fbb40328ca3321c84143b2c16186eebf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "illuminate/contracts": "~5.0",
+                "mockery/mockery": "~0.9",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "http://fractal.thephpleague.com/",
+            "keywords": [
+                "api",
+                "json",
+                "league",
+                "rest"
+            ],
+            "time": "2016-07-21T09:56:14+00:00"
         },
         {
             "name": "monolog/monolog",

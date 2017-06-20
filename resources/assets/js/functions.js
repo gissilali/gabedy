@@ -64,3 +64,17 @@ $(document).ready(function() {
 		$('.slideout').toggleClass('slideout-open');
 	});
 });
+
+$(document).ready(function(){
+	var submenuClosed = true;
+	$('.main-menu').click(function(event){
+		event.preventDefault();
+		if (submenuClosed) {
+			submenuClosed = false;
+			$('.sub-menu').toggleClass('open');;
+		} else{
+			submenuClosed = true;
+			$('.sub-menu').toggleClass('open');
+		}
+	});
+});

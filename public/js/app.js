@@ -1777,6 +1777,20 @@ $(document).ready(function () {
 	});
 });
 
+$(document).ready(function () {
+	var submenuClosed = true;
+	$('.main-menu').click(function (event) {
+		event.preventDefault();
+		if (submenuClosed) {
+			submenuClosed = false;
+			$('.sub-menu').toggleClass('open');;
+		} else {
+			submenuClosed = true;
+			$('.sub-menu').toggleClass('open');
+		}
+	});
+});
+
 /***/ }),
 /* 32 */
 /***/ (function(module, exports) {

@@ -2,18 +2,18 @@
 @section('content')
 	{{-- Extract this header to a partial file --}}
 	@include('partials.header')
-	<section class="hero">
-		<div class="banner" style="background: url(../images/clock-bg.jpg);background-size:cover;background-repeat:no-repeat;">
+	<section class="hero jumbotron jumbotron-fluid" style="background: url(../images/clock-bg.jpg);background-size:cover;background-repeat:no-repeat;background-attachment: fixed">
+		<div class="banner">
 			<div class="banner-content">
 				<h1 class="title">Gabedy</h1>
 				<p class="subtitle">Transforming the scope and content of academic writing</p>
 				<p class="blurb">Browse through thousands of schorlaly articles and web contents. Better still, find writing help from our pool of proffesional writers</p>
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<div class="col-md-6">
+						<div class=" col-xs-6">
 							<a href="{{ url('register') }}" class="btn __btn __btn-blue btn-lg __btn-cta" style="width:100%;font-weight:600">Join for free</a>
 						</div>
-						<div class="col-md-6">
+						<div class=" col-xs-6">
 							<a href="#" class="btn __btn __btn-green btn-lg __btn-cta" style="width:100%;font-weight:600">Find Tutors</a>
 						</div>
 					</div>
@@ -48,8 +48,8 @@
 								</div>
 								<div class="article-cta">
 								{{-- Extract styles to external --}}
-									<a href="#" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px">Read more</a>
-									<a href="#" class="btn __btn __btn-cta __btn-green" style="font-weight:600;min-width:150px">Save</a>
+									<a href="#" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px;">Read more</a>
+									<a href="#" class="btn __btn __btn-cta __btn-green" style="font-weight:600;min-width:150px;">Save</a>
 								</div>
 							</article>
 						</div>

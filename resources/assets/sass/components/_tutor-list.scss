@@ -1,0 +1,148 @@
+.pre-section-header{
+		text-align:center;
+		h3{
+
+			text-transform:uppercase;
+			.light{
+				font-weight:300;
+			}
+		}
+		.logo-container{
+			width:70px;
+			margin:0 auto;
+			img{
+				width:100%;
+			}
+		}
+	}
+.tutors-section{
+	.search-bar{
+		float:right;
+		display:block;
+		padding-top:7px;
+		// padding-bottom:15px;
+		.search-wrapper{
+			background:#e0e0e0;
+		}
+		.input.hide-input{
+			width:0px;
+		}
+		.input.show-input{
+			width:auto;
+		}
+		.input{
+			float:right;
+			overflow: hidden;
+			transition:all 1400;
+			max-width:150px;
+			margin-right:5px;
+			input{
+				border:none;
+				box-shadow: none;
+				padding-left:10px;
+				height:40px;
+				background:transparent;
+				font-weight:bold;
+				color:$gabedi-green;
+				&:focus{
+					border:none;
+					box-shadow: none;			
+				}
+				&:hover{
+					border:none;
+					box-shadow: none;
+				}
+				&:active{
+					border:none;
+					box-shadow: none;			
+				}
+			}
+		}
+		.button{
+			float:right;
+			button{
+				height:40px;
+				background:transparent;
+				color:$gabedi-green;
+				border:none;
+				transition:all 50ms;
+				&:hover{
+					color:darken($gabedi-green,5%);
+				}
+				&:active{
+					border:none;
+					box-shadow: none;
+				}
+				&:focus{
+					border:none;
+					box-shadow: none;
+				}
+			}
+
+		}
+}
+	.section-header{
+		padding:20px 0;
+	}
+	.actions{
+		float:left;
+		margin-top:17px;
+		button{
+			color:$gabedi-green;
+			background:transparent;
+			border:1px solid transparent;
+			margin-right:20px;
+		}
+	}
+}
+.tutor-list{
+	width:100%;
+	padding:0;
+	position: relative;
+	.avatar-wrapper, .tutor-info, .see-more-cta{
+		display:table-cell;
+		vertical-align: middle;
+	}
+	.avatar-wrapper{
+		width:50px;
+	}
+	.tutor-list-item{
+		padding:10px;
+		display:table;
+		width:100%;
+	}
+	.see-more-cta{
+		text-align: right;
+		padding-right: 10px;
+		text-decoration: none;
+		color:$gabedi-green;
+		font-size:12px;
+		text-transform:uppercase;
+		font-weight: 700;
+	}
+	.tutor-info{
+		padding-left:20px;
+		line-height:1;
+		.name{
+			font-size:16px;
+			font-weight:bold;
+		}
+		.category{
+			font-weight:bold;
+			color:rgba(0,0,0,0.7);
+			font-size:12px;
+			text-transform:lowercase;
+			padding-right:2px;
+			&:after{
+				content:":";
+			}
+		}
+		.category-name{
+			color:$gabedi-green;
+			font-weight:bold;
+			font-size:12px;
+			text-transform:lowercase;
+			padding-right:2px;
+		}
+	}
+}
