@@ -31,27 +31,38 @@
 							<h4 class="section-title">Latest Articles</h4>
 						</div>
 						<div class="section-content">
-							<article>
-								<h1 class="article-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-								<div class="article-details">
-									<span>By Jeff Bridges</span>
-									<span>/</span>
-									<span>2 min read</span>
-									<span>/</span>
-									<span>Add Comment</span>
+							@if (count($posts)>0)
+								@foreach ($posts as $post)
+									<article>
+										<h1 class="article-title">{{ $post->title }}</h1>
+										<div class="article-details">
+											<span>By {{ $post->author->name }}</span>
+											<span>/</span>
+											<span>2 min read</span>
+											<span>/</span>
+											<span>Add Comment</span>
+										</div>
+										@if ($post->image=='' || $post->image==NULL)
+										@else
+											<div class="article-image">
+												<img src="{{ asset('images/clock-bg.jpg') }}" alt="">
+											</div>
+										@endif
+										<div class="article-content">
+											{!! Illuminate\Support\Str::words($post->body, 55) !!}
+										</div>
+										<div class="article-cta">
+										{{-- Extract styles to external --}}
+											<a href="{{ url('read/'.$post->slug.'/'.$post->id) }}" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px;">Read more</a>
+											<a href="#" class="btn __btn __btn-cta __btn-green" style="font-weight:600;min-width:150px;">Read later</a>
+										</div>
+									</article>
+								@endforeach
+							@else
+								<div class="no-article">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum iure voluptatibus tempore obcaecati itaque, vel doloribus ad soluta ducimus saepe odio quod quibusdam, deleniti aliquam modi in fugit aliquid molestias laborum amet. Temporibus, animi dolore. Ea porro quo cupiditate eaque laboriosam iusto architecto vel. Nostrum, voluptas. Deleniti dolore fuga doloribus totam accusantium iure laborum maxime alias eum consectetur, quia ratione voluptates labore mollitia, ab tenetur ipsa saepe. Quos maiores eum in asperiores debitis ea perspiciatis ab quae, labore distinctio velit? Dicta eveniet at nesciunt unde odit obcaecati esse asperiores accusamus non quia, harum architecto minima, dolores, et atque odio quos.
 								</div>
-								<div class="article-image">
-									<img src="{{ asset('images/clock-bg.jpg') }}" alt="">
-								</div>
-								<div class="article-content">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore error nobis aliquid quia explicabo iste corrupti neque porro qui dolore, adipisci magnam non officia suscipit obcaecati beatae possimus iure reprehenderit sed totam autem eius architecto quibusdam et consectetur. Minima enim architecto ad iste, sunt magni dignissimos iusto quibusdam sit assumenda facilis impedit. Praesentium, recusandae, vitae. Iure.</p>
-								</div>
-								<div class="article-cta">
-								{{-- Extract styles to external --}}
-									<a href="#" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px;">Read more</a>
-									<a href="#" class="btn __btn __btn-cta __btn-green" style="font-weight:600;min-width:150px;">Save</a>
-								</div>
-							</article>
+							@endif
 						</div>
 					</div>
 				</div>

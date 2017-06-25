@@ -24,16 +24,44 @@ Route::group(['prefix' => 'admin'], function () {
 /**
  * front-end dev routes
  **/
-Route::get('index', 'PageController@index');
-Route::get('landing', 'PageController@landing');
-Route::get('register', 'PageController@register');
-Route::get('login', 'PageController@login');
-Route::get('posts', 'PageController@posts');
-Route::get('view-post', 'PageController@viewPost');
-Route::get('browse-articles', 'PageController@browseArticles');
-Route::get('about', 'PageController@about');
-Route::get('find-tutors', 'PageController@findTutors');
-Route::get('article', 'PageController@article');
+Route::get('index', 'Page\PageController@index');
+Route::get('landing', 'Page\PageController@landing');
+Route::get('register', 'Page\PageController@register');
+Route::get('login', 'Page\PageController@login');
+Route::get('posts', 'Page\PageController@posts');
+Route::get('view-post', 'Page\PageController@viewPost');
+Route::get('browse-articles', 'Page\PageController@browseArticles');
+Route::get('about', 'Page\PageController@about');
+Route::get('find-tutors', 'Page\PageController@findTutors');
+Route::get('read/{slug}/{post_id}', 'Page\PageController@article');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+/**
+ *
+ * Comment routes
+ * 
+ */
+Route::post('respond-to/{slug}/{postId}', 'Interactions\CommentController@store');
+Route::get('get-comments/{postId}', 'Interactions\CommentController@index');
+
+/**
+ *
+ * Likes routes
+ * 
+ */
+Route::get('is-liked/{comment_id}', 'Interactions\LikesController@liked');
+Route::get('likes-count/{comment_id}', 'Interactions\LikesController@likesCount');
+Route::post('like/{comment_id}', 'Interactions\LikesController@storeLike');
+Route::post('unlike/{comment_id}', 'Interactions\LikesController@deleteLike');

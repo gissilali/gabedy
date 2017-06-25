@@ -1,0 +1,35 @@
+.comment-section{
+	.title{
+		font-weight:bold;
+		text-transform:capitalize;
+		font-size:16px;
+	}
+}
+.comment-panel{
+	margin-bottom: 20px;
+	.panel-heading{
+		border-bottom:none;
+		.profile-img{
+			width:35px;
+			height:35px;
+			border-radius: 50%;
+			border:1px solid rgba(black,0.1);
+			float:left;
+		}
+	}
+	.panel-footer{
+		background: white;
+		border-top:none;
+		padding-top:0;
+		.actions{
+			button{
+				border:1px solid transparent;
+				background:transparent;
+				padding:0;
+			}
+		}
+	}
+	.panel-body{
+		padding-top:0;
+	}
+}

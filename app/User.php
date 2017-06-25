@@ -26,4 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+    
+    /**
+     * User can like many Comments and a Comment can be liked by many Users
+     * @return relationship gets all likes for a user 
+     */
+    public function likes(){
+        return $this->belongsToMany('App\Post', 'likes', 'user_id', 'comment_id')->withTimeStamps();
+    }
+
 }

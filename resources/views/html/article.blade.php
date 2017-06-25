@@ -16,44 +16,59 @@
 							<article>
 								<h1 class="article-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
 								<div class="article-details">
-									<span>By Jeff Bridges</span>
+									<span>By {{ $post->author->name }}</span>
 									<span>/</span>
 									<span>2 min read</span>
 									<span>/</span>
 									<span>Add Comment</span>
 								</div>
-								<div class="article-image">
-									<img src="{{ asset('images/clock-bg.jpg') }}" alt="">
-								</div>
 								<div class="article-content">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore error nobis aliquid quia explicabo iste corrupti neque porro qui dolore, adipisci magnam non officia suscipit obcaecati beatae possimus iure reprehenderit sed totam autem eius architecto quibusdam et consectetur. Minima enim architecto ad iste, sunt magni dignissimos iusto quibusdam sit assumenda facilis impedit. Praesentium, recusandae, vitae. Iure.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, suscipit, unde! Iste, officia impedit praesentium nisi sunt. Tenetur alias, repellendus necessitatibus omnis aperiam esse nisi porro velit quisquam quos accusamus, odio in cupiditate quae.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, magni eos amet pariatur obcaecati laborum, deleniti modi omnis aut, provident adipisci accusamus, quia in. Autem minima sequi quod reiciendis aperiam repellendus earum, nostrum dicta ducimus vero officiis explicabo, similique blanditiis in ullam sint quaerat libero vitae adipisci dolores voluptatem? Quaerat labore, quo quia? Laudantium, alias dolores!</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam dolorum maiores quo nemo distinctio, alias culpa magnam. Aliquam dolorum, voluptas animi sed, reprehenderit labore in. Magni facilis, velit est, perferendis libero omnis amet rerum tenetur molestias distinctio, veniam animi? Neque nihil, tenetur cumque officiis perferendis dolorum fugit nobis tempora. Itaque, nesciunt quia adipisci ut architecto eius laudantium unde impedit suscipit facilis! Obcaecati odio similique tempora! Quaerat consectetur repudiandae consequuntur dolorum officiis, aut nulla, omnis fuga laboriosam natus tenetur consequatur porro doloribus sapiente iste saepe cumque, sequi. Eos non officiis facilis id illo. Possimus eum non, nulla culpa cupiditate voluptatum nisi quia veniam.</p>
-									<p>lorem23</p>
+									{!! $post->body !!}
 								</div>
 							</article>
 						</div>
 					</div>
-					<div class="comment-section">
+					<comment-section inline-template>
+						<div class="comment-section" id="comment-section" data-post-id="{{ $post->id }}" data-post-slug="{{ $post->slug }}">
 						<div class="section-header clearfix">
-							<h4 class="section-title">3 COMMENTS</h4>
+							<h4 class="title">Responses</h4>
 						</div>
 						<div class="section-body">
-							<form action="">
+							<form action="{{ url('respond-to/'.$post->slug.'/'.$post->id) }}" method="post" @submit.prevent="onSubmit('{{ $post->slug }}',{{ $post->id }})" >
 								{{ csrf_field() }}
 								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="10" class="form-control __textarea"></textarea>
+									<textarea name="body" id="body" cols="30" rows="5" class="form-control __textarea" v-model="commentBody"></textarea>
 								</div>
-								<div class="form-group">
-									<a class="btn __btn __btn-blue __btn-cta" href="#" style="font-weight:600;min-width:150px">submit comment</a>
-								</div>
+								<transition name="slide">
+									<div class="form-group" v-if="commentValid">
+										<button class="btn __btn __btn-blue __btn-cta" type="submit" style="font-weight:600;min-width:150px">submit response</button>
+									</div>
+								</transition>		
 							</form>
 						</div>
 						<div class="section-footer clearfix">
-							
+
+							<div class="panel panel-default comment-panel" v-for="comment in comments">
+									<div class="panel-heading clearfix">
+										<div class="profile-img" style="background:url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50);background-size:cover">
+										</div>
+										<div class="user-details">
+											<p class="name">@{{ comment.user.name }}</p>
+											<p class="meta-data">@{{comment.created_at}}</p>
+										</div>
+									</div>
+									<div class="panel-body clearfix">
+										@{{ comment.body }}
+									</div>
+									<div class="panel-footer clearfix">
+										<div class="actions">
+											<like-button :comment-id=comment.id></like-button>
+										</div>
+									</div>
+								</div>
 						</div>
 					</div>
+					</comment-section>
 				</div>
 			</div>
 		</div>

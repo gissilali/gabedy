@@ -27,8 +27,8 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="nav-collapse">
 				<ul class="nav navbar-nav links">
+					<li><a href="#">Contact Us</a></li>
 					<li class="active"><a href="#">About Us<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Find Tutors</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav pull-right links">
@@ -47,10 +47,6 @@
 							</div>
 						</li>
 
-						<li>
-							<a href="#">Contact Us</a>
-						</li>
-
 						<li class="dropdown __dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="click to see categories">Categories <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -62,28 +58,37 @@
 								<li><a href="">Archives</a></li>
 							</ul>
 						</li>
-						<li class="dropdown __dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
-							<div class="img-rounded profile-img"></div>
-							<span class="name">Jayden Wafush</span> <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right">
-								<li class="dropdown-header" style="padding:10px">
-									<strong>Al Gore</strong>
-									<p class="email">gore@al.com</p>
-								</li>
-								<li>
-								<a href="#">Settings</a>
-								</li>
-								<li>
-								<a href="#">Notifications</a>
-								</li>
-								<li>
-								<a href="#">Log out</a>
-								</li>
-							</ul>
-						</li>
+						@if (Auth::check())
+							<li class="dropdown __dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
+								<div class="profile-img" style="background-image:url({{ '../storage/'.Auth::user()->avatar}});
+    		background-size:cover;">
+									
+								</div>
+								<span class="name">{{ Auth::user()->name }}</span> <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu ">
+									<li class="dropdown-header" style="padding:10px">
+										<strong>{{ Auth::user()->name }}</strong>
+										<p class="email">{{ Auth::user()->email }}</p>
+									</li>
+									<li>
+									<a href="#">Settings</a>
+									</li>
+									<li>
+									<a href="#">Notifications</a>
+									</li>
+									<li>
+									<a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log out</a>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                    </form>
+									</li>
+								</ul>
+							</li>
+						@endif
 				</ul>
 			</div>
 		</div>

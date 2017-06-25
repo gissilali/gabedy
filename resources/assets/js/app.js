@@ -15,7 +15,13 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+/**
+ * Extracted the vue object to component file
+ */
+import commentOptions from './components/comments';
 
+Vue.component('comment-section', commentOptions);
+Vue.component('like-button', require('./components/LikeButton'));
 const app = new Vue({
     el: '#app'
 });

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Post;
 class PageController extends Controller
 {
     public function index(){
@@ -11,7 +12,8 @@ class PageController extends Controller
     }
 
     public function landing(){
-    	return view('html.landing');
+        $posts = Post::whereStatus('published')->with('author')->get();
+    	return view('html.landing', compact('posts'));
     }
 
     public function register(){
@@ -42,7 +44,8 @@ class PageController extends Controller
         return view('html.find-tutors');
     }
 
-    public function article(){
-        return view('html.article');
+    public function article($slug, $post_id){
+        $post = Post::find($post_id)->with('comments')->with('author')->first();
+        return view('html.article', compact('post'));
     }
 }
