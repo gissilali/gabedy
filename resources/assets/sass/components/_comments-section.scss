@@ -10,11 +10,19 @@
 	.panel-heading{
 		border-bottom:none;
 		.profile-img{
-			width:35px;
-			height:35px;
+			width:30px;
+			height:30px;
 			border-radius: 50%;
 			border:1px solid rgba(black,0.1);
 			float:left;
+			background:gold;
+		}
+		.user-details{
+			padding-left:40px;
+			p{
+				margin:0;
+			}
+
 		}
 	}
 	.panel-footer{

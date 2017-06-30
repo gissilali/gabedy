@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin'], function () {
  */
 Route::post('respond-to/{slug}/{postId}', 'Interactions\CommentController@store');
 Route::get('get-comments/{postId}', 'Interactions\CommentController@index');
+Route::get('get-comments/{postId}/{number_of_comments}', 'Interactions\CommentController@loadMore');
 
 /**
  *

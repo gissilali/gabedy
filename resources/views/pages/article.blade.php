@@ -35,19 +35,20 @@
 								</div>
 								<transition name="slide">
 									<div class="form-group" v-if="commentValid">
-										<button class="btn __btn __btn-blue __btn-cta" type="submit" style="font-weight:600;min-width:150px">submit response</button>
+										<button class="btn __btn __btn-blue __btn-cta ld-ext-right" :class="{ 'running': isLoading }" type="submit" style="font-weight:600;min-width:150px">submit response <div class="ld ld-ring ld-spin"></div></button>
 									</div>
 								</transition>		
 							</form>
 						</div>
 						<div class="section-footer clearfix">
-							<div class="panel panel-default comment-panel" v-for="comment in comments">
+							<transition-group name="slide">
+								<div class="panel panel-default comment-panel" v-for="comment in comments" v-bind:key="comment">
 								<div class="panel-heading clearfix">
-									<div class="profile-img" style="background:url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50);background-size:cover">
+									<div class="profile-img" style="background-image:url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50);background-size:cover">
 									</div>
 									<div class="user-details">
-										<p class="name">@{{ comment.user.name }}</p>
-										<p class="meta-data">@{{comment.created_at | localTime }}</p>
+										<p class="name"><strong>@{{ comment.user.name }}</strong></p>
+										<p class="meta-data"><small>@{{comment.created_at | localTime }}</small></p>
 									</div>
 								</div>
 								<div class="panel-body clearfix">
@@ -59,6 +60,11 @@
 									</div>
 								</div>
 							</div>
+							</transition-group>
+							<button class="btn __btn __btn-blue __btn-cta ld-ext-right" :class="{ 'running': isLoadingMore }" @click="loadMore({{ $post->id }})">load more <div class="ld ld-ring ld-spin"></div></button>
+							<transition name="slide">
+								<span class="badge" v-if="paginator.lastPageReached" style="background: orange">no more comments</span>
+							</transition>
 						</div>
 					</div>
 					</comment-section>

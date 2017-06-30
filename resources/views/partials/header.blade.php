@@ -67,6 +67,7 @@
 								@endforeach
 							</ul>
 						</li>
+						<li><a href="{{ url('login') }}">Login</a></li>
 						@if (Auth::check())
 							<li class="dropdown __dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

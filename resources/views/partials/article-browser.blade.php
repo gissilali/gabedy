@@ -38,17 +38,19 @@
 									</article>
 								@endforeach
 							@else
-								<div class="no-article clearfix" style="width:100%">
-									<div class="alert-image" style="height:200px;padding-top:20px;">
-										<img src="{{ asset('images/noarticle.png') }}" alt="no article" style="height:100%">
-									</div>
-								</div>
-								<div class="alert-text" style="text-align: center;">
-										<h3>oops no articles just yet</h3>
-										<a href="http://www.freepik.com"><small><strong>image credits</strong></small></a>
-										<div class="cta">
-											<a href="{{ url('/') }}" class="btn __btn __btn-cta __btn-blue"><strong>go home</strong></a>
+								<div class="error-fullpage clearfix" style="min-height: 100vh; padding:80px 0">
+									<div class="col-md-4 col-md-offset-4 ">
+										<div class="alert-image" style="width:100%;padding-top:20px;">
+											<img src="{{ asset('images/noarticle.png') }}" alt="no article" style="width:100%">
 										</div>
+										<div class="alert-text" style="text-align: center;">
+											<h3>oops, no articles just yet</h3>
+											<a href="http://www.freepik.com"><small><strong>image credits</strong></small></a>
+											<div class="cta">
+												<a href="{{ url('/') }}" class="btn __btn __btn-cta __btn-blue"><strong>go home</strong></a>
+											</div>
+										</div>
+									</div>
 								</div>
 							@endif
 						</div>

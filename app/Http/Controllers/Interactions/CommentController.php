@@ -17,19 +17,15 @@ class CommentController extends Controller
      */
     public function index($post_id)
     {
-        $comments = Comment::wherePostId($post_id)->orderBy('created_at', 'desc')->with('user')->get();
+        $comments = Comment::wherePostId($post_id)->orderBy('created_at', 'desc')->with('user')->paginate(5);
 
         return response($comments, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function loadMore($post_id, $number_of_comments){
+        $comments = Comment::wherePostId($post_id)->orderBy('created_at', 'desc')->with('user')->paginate($number_of_comments);
+
+        return response($comments, 200);
     }
 
     /**
@@ -57,50 +53,5 @@ class CommentController extends Controller
         } else {
             return back();
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

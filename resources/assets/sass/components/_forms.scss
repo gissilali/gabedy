@@ -4,8 +4,10 @@
     justify-content: center;
     height: 100vh;
     background-size:cover;
-    padding-bottom: 100px;
-    overflow: scroll
+    padding:100px 0;
+    @media (max-width:768px){
+    	padding:350px 0;
+    }
 }
 .form-container{
 	.form-logo-heading{

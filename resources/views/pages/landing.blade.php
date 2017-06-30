@@ -9,10 +9,7 @@
 				<p class="blurb">Browse through thousands of schorlaly articles and web contents. Better still, find writing help from our pool of proffesional writers</p>
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<div class=" col-xs-6">
-							<a href="{{ url('register') }}" class="btn __btn __btn-blue btn-lg __btn-cta" style="width:100%;font-weight:600">Join for free</a>
-						</div>
-						<div class=" col-xs-6">
+						<div class=" col-xs-6 col-xs-offset-3">
 							<a href="{{ url('subscribe') }}" class="btn __btn __btn-green btn-lg __btn-cta" style="width:100%;font-weight:600" title="subscribe for our newsletter" data-toggle="tooltip" data-placement="top" >Subscribe</a>
 						</div>
 					</div>

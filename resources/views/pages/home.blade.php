@@ -32,8 +32,7 @@
 									<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
 								</div>
 							</div>
-						</div>
-							
+						</div>	
 						@endforeach
 					</div>
 				</div>

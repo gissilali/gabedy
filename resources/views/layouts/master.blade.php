@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/mango-slideout.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/loading.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/loading-btn.css') }}">
 	<script>
 		var loggedIn = {{ auth()->check() ? 'true' : 'false' }};
 	</script>
@@ -54,8 +56,8 @@
 		@include('partials.slideout-menu')
 		<div id="panel">
 			@yield('content')
+			@include('partials.footer')
 		</div>
-		@include('partials.footer')
 	</div>
 	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
@@ -94,101 +96,6 @@
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	{{-- Extract this conditions to a toastr.blade --}}
-	@if (Session::has('email_sent'))
-		<script>
-			$(document).ready(function() {
-				toastr.info('an email has been sent to {{ Session::get('email_sent') }}');
-				toastr.options = {
-				  "closeButton": true,
-				  "debug": false,
-				  "newestOnTop": true,
-				  "progressBar": false,
-				  "positionClass": "toast-top-right",
-				  "preventDuplicates": false,
-				  "onclick": null,
-				  "showDuration": "300",
-				  "hideDuration": "1000",
-				  "timeOut": "5000",
-				  "extendedTimeOut": "1000",
-				  "showEasing": "swing",
-				  "hideEasing": "linear",
-				  "showMethod": "fadeIn",
-				  "hideMethod": "fadeOut"
-				}
-			});
-		</script>
-	@endif
-	@if (Session::has('profile_updated'))
-		<script>
-			$(document).ready(function() {
-				toastr.success('{{ Session::get('profile_updated') }}');
-				toastr.options = {
-				  "closeButton": true,
-				  "debug": false,
-				  "newestOnTop": true,
-				  "progressBar": false,
-				  "positionClass": "toast-top-right",
-				  "preventDuplicates": false,
-				  "onclick": null,
-				  "showDuration": "300",
-				  "hideDuration": "1000",
-				  "timeOut": "5000",
-				  "extendedTimeOut": "1000",
-				  "showEasing": "swing",
-				  "hideEasing": "linear",
-				  "showMethod": "fadeIn",
-				  "hideMethod": "fadeOut"
-				}
-			});
-		</script>
-	@endif
-	@if (Session::has('password_updated'))
-		<script>
-			$(document).ready(function() {
-				toastr.success('{{ Session::get('password_updated') }}');
-				toastr.options = {
-				  "closeButton": true,
-				  "debug": false,
-				  "newestOnTop": true,
-				  "progressBar": false,
-				  "positionClass": "toast-top-right",
-				  "preventDuplicates": false,
-				  "onclick": null,
-				  "showDuration": "300",
-				  "hideDuration": "1000",
-				  "timeOut": "5000",
-				  "extendedTimeOut": "1000",
-				  "showEasing": "swing",
-				  "hideEasing": "linear",
-				  "showMethod": "fadeIn",
-				  "hideMethod": "fadeOut"
-				}
-			});
-		</script>
-	@endif
-	@if (Session::has('password_not_matching'))
-		<script>
-			$(document).ready(function() {
-				toastr.error('{{ Session::get('password_not_matching') }}');
-				toastr.options = {
-				  "closeButton": true,
-				  "debug": false,
-				  "newestOnTop": true,
-				  "progressBar": false,
-				  "positionClass": "toast-top-right",
-				  "preventDuplicates": false,
-				  "onclick": null,
-				  "showDuration": "300",
-				  "hideDuration": "1000",
-				  "timeOut": "5000",
-				  "extendedTimeOut": "1000",
-				  "showEasing": "swing",
-				  "hideEasing": "linear",
-				  "showMethod": "fadeIn",
-				  "hideMethod": "fadeOut"
-				}
-			});
-		</script>
-	@endif
+	@include('messages.messages')
 </body>
 </html>

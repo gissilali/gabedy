@@ -15,7 +15,7 @@ class MailSubscriptionController extends Controller
 {
 
     public function showSubscriptionForm() {
-        return view('html.subscribe');     
+        return view('pages.subscribe');     
     }
 	
     public function subscribe(Request $request) {
