@@ -69,3 +69,6 @@
         </div>
     </div>
 @endsection
+@section('title')
+    Register for an account
+@endsection

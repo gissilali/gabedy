@@ -7,7 +7,7 @@ var commentOptions = {
 	mounted(){
 		var postId = $('#comment-section').attr('data-post-id');
 		var context = this;
-		axios.get('/get-comments/'+postId)
+		axios.get(appDomain+'get-comments/'+postId)
 		.then(function (response) {
 			console.log(response.data);
 			context.comments = response.data;
@@ -38,24 +38,29 @@ var commentOptions = {
 
 	methods: {
 		onSubmit(postSlug, postId) {
-			var context = this;
-			axios.post('/respond-to/'+postSlug+'/'+postId, {
+			if (loggedIn) {
+				var context = this;
+			axios.post(appDomain+'respond-to/'+postSlug+'/'+postId, {
 				body: context.commentBody
 			})
 			.then(function (response) {
 				console.log(response.data);
 				if (response.data==true) {
+					context.clearTextField();
 					context.fetchComments(postId);
 				}
 			})
 			.catch(function (error) {
 			    console.log(error);
 			});
+			} else {
+				Event.$emit('open-authentication-modal');
+			}
 		},
 
 		fetchComments(postId){
 			var context = this;
-			axios.get('/get-comments/'+postId)
+			axios.get(appDomain+'get-comments/'+postId)
 			.then(function (response) {
 				console.log(response.data);
 				context.comments = response.data;
@@ -63,6 +68,16 @@ var commentOptions = {
 			.catch(function (error) {
 			    console.log(error);
 			});
+		},
+
+		clearTextField(){
+			this.commentBody = '';
+		}
+	},
+
+	filters: {
+		localTime(date){
+			 return moment(date + ' Z', 'YYYY-MM-DD HH:mm:ss Z', true).fromNow();
 		}
 	}
 };

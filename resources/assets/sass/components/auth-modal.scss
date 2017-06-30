@@ -1,0 +1,17 @@
+.auth-modal{
+	width:100vw;
+	height:100vh;
+	background: rgba(255,255,255,0.9);
+	position: fixed;
+	z-index:1000000;
+	.form-panel{
+		text-align: center;
+	}
+	.panel-footer{
+		background: white;
+		border-top:none;
+	}
+	.__btn-cta{
+		min-width: 100%;
+	}
+}

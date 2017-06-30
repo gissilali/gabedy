@@ -1,3 +1,8 @@
+window.moment = require('moment');
+require('moment-timezone');
+require("moment/min/locales.min");
+moment.locale('en');
+moment.tz.setDefault("Africa/Nairobi");
 
 window._ = require('lodash');
 
@@ -36,6 +41,8 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+require('./functions');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

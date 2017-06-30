@@ -2,19 +2,13 @@
 @section('content')
 	@include('partials.header')
 	<div class="content">
-{{--         <div class="jumbotron jumbotron-fluid article-cover">
-			<div class="container">
-				<h1 class="display-3">Fluid jumbotrons in bootstrap</h1>
-				<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of it's parent.</p>
-			</div>
-		</div> --}}
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 					<div class="article">
 						<div class="section-content">
 							<article>
-								<h1 class="article-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+								<h1 class="article-title">{{ $post->title }}</h1>
 								<div class="article-details">
 									<span>By {{ $post->author->name }}</span>
 									<span>/</span>
@@ -47,25 +41,24 @@
 							</form>
 						</div>
 						<div class="section-footer clearfix">
-
 							<div class="panel panel-default comment-panel" v-for="comment in comments">
-									<div class="panel-heading clearfix">
-										<div class="profile-img" style="background:url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50);background-size:cover">
-										</div>
-										<div class="user-details">
-											<p class="name">@{{ comment.user.name }}</p>
-											<p class="meta-data">@{{comment.created_at}}</p>
-										</div>
+								<div class="panel-heading clearfix">
+									<div class="profile-img" style="background:url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50);background-size:cover">
 									</div>
-									<div class="panel-body clearfix">
-										@{{ comment.body }}
-									</div>
-									<div class="panel-footer clearfix">
-										<div class="actions">
-											<like-button :comment-id=comment.id></like-button>
-										</div>
+									<div class="user-details">
+										<p class="name">@{{ comment.user.name }}</p>
+										<p class="meta-data">@{{comment.created_at | localTime }}</p>
 									</div>
 								</div>
+								<div class="panel-body clearfix">
+									@{{ comment.body }}
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="actions">
+										<like-button :comment-id=comment.id></like-button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					</comment-section>

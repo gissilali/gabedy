@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Comment;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -45,7 +46,7 @@ class CommentController extends Controller
 
         $comment->body = $request->body;
 
-        $comment->user_id = 1;
+        $comment->user_id = Auth::user()->id;
 
         $post = Post::find($postId);
 

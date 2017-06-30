@@ -19,6 +19,11 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "material-components-web": "^0.12.1"
+    "material-components-web": "^0.12.1",
+    "moment-timezone": "^0.5.13",
+    "vue-infinite-loading": "^2.1.3",
+    "vue-infinite-scroll": "^2.0.1",
+    "vue-loadmore": "^2.0.0",
+    "vue-moment": "^2.0.2"
   }
 }

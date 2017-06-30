@@ -13,39 +13,41 @@ class PageController extends Controller
 
     public function landing(){
         $posts = Post::whereStatus('published')->with('author')->get();
-    	return view('html.landing', compact('posts'));
+    	return view('pages.landing', compact('posts'));
     }
 
     public function register(){
-    	return view('html.register');
+    	return view('pages.register');
     }
 
     public function login(){
-    	return view('html.login');
+    	return view('pages.login');
     }
 
     public function posts(){
-        return view('html.posts');
+        return view('pages.posts');
     }
 
     public function viewPost(){
-        return view('html.view-post');
+        return view('pages.view-post');
     }
 
     public function browseArticles(){
-        return view('html.browse-articles');
+        $posts = Post::whereStatus('published')->with('author')->paginate(5);
+        return view('pages.browse-articles', compact('posts'));
     }
 
     public function about(){
-        return view('html.about');
+        $article = Post::where('slug', 'aboutgabedi2015#')->first();
+        return view('pages.about', compact('article'));
     }
 
     public function findTutors(){
-        return view('html.find-tutors');
+        return view('pages.find-tutors');
     }
 
     public function article($slug, $post_id){
-        $post = Post::find($post_id)->with('comments')->with('author')->first();
-        return view('html.article', compact('post'));
+        $post = Post::where('id', $post_id)->with('comments')->with('author')->first();
+        return view('pages.article', compact('post'));
     }
 }

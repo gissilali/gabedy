@@ -11,59 +11,73 @@
 				<div class="logo">
 					<img src="{{ asset('logo.svg') }}" alt="logo">
 				</div>
-				<div class="search-bar clearfix pull-right search-bar-mobile">
+				<form action="search" method="get">
+					<div class="search-bar clearfix pull-right search-bar-mobile">
 					<div class="search-wrapper clearfix">
 						<div class="button">
 							<button class="btn search-btn"><i class="fa fa-search"></i></button>
 						</div>
 
 						<div class="input hide-input">
-							<input type="text" name="search_query" id="search" placeholder="search gabedy">
+							<input type="text" name="q" id="search" placeholder="search articles">
 						</div>
 					</div>
 				</div>
+				</form>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="nav-collapse">
 				<ul class="nav navbar-nav links">
-					<li><a href="#">Contact Us</a></li>
-					<li class="active"><a href="#">About Us<span class="sr-only">(current)</span></a></li>
+					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ url('about#contact-us') }}">Contact Us</a></li>
+					<li class="active"><a href="{{ url('about') }}">About Us<span class="sr-only">(current)</span></a></li>
 				</ul>
 
 				<ul class="nav navbar-nav pull-right links">
 
 						<li>
-							<div class="search-bar clearfix">
-								<div class="search-wrapper clearfix">
-									<div class="button">
-										<button class="btn search-btn"><i class="fa fa-search"></i></button>
-									</div>
+							<article-search inline-template>
+								<form action="{{ url('search') }}" method="get">
+								<div class="search-bar clearfix">
+									<div class="search-wrapper clearfix">
+										<div class="button">
+											<button class="btn search-btn"><i class="fa fa-search"></i></button>
+										</div>
 
-									<div class="input hide-input">
-										<input type="text" name="search_query" id="search">
+										<div class="input hide-input">
+											<input type="text" name="q" id="search" placeholder="search articles" v-model="query" @keyup="sendSearchRequest" autocomplete="off">
+										</div>
 									</div>
+									
+									<ul class="search-suggestion list-group" v-if="resultsAvailable">
+										<li class="list-group-item" v-for="result in results"><a v-bind:href="postURL(result.slug, result.id)">@{{ result.title }}</a></li>
+									</ul>
 								</div>
-							</div>
+							</form>
+							</article-search>
 						</li>
 
 						<li class="dropdown __dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="click to see categories">Categories <span class="caret"></span></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="click to see categories">Articles <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Life</a></li>
-								<li><a href="#">Technology</a></li>
-								<li><a href="#">Art</a></li>
-								<li><a href="">Stuff</a></li>
-								<li><a href="">Politics</a></li>
-								<li><a href="">Archives</a></li>
+									<li><a href="{{ url('category/all') }}">All</a></li>
+								@foreach ($categories as $category)
+									<li><a href="{{ url('category/'.$category->slug.'/'.$category->id) }}">{{ $category->name }}</a></li>
+								@endforeach
 							</ul>
 						</li>
 						@if (Auth::check())
 							<li class="dropdown __dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								<!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
-								<div class="profile-img" style="background-image:url({{ '../storage/'.Auth::user()->avatar}});
+								@if (Auth::user()->avatar!=NULL)
+									{{-- true expr --}}<div class="profile-img" style="background-image:url({{ '../storage/'.Auth::user()->avatar}});
     		background-size:cover;">
+								@else
+									{{-- false expr --}}<div class="profile-img" style="background-image:url({{ asset('../images/default.png') }});
+    		background-size:cover;">
+								@endif
 									
 								</div>
 								<span class="name">{{ Auth::user()->name }}</span> <span class="caret"></span>
@@ -74,10 +88,10 @@
 										<p class="email">{{ Auth::user()->email }}</p>
 									</li>
 									<li>
-									<a href="#">Settings</a>
+									<a href="{{ url('settings/'.Auth::user()->id) }}">Settings</a>
 									</li>
 									<li>
-									<a href="#">Notifications</a>
+									<a href="{{ url('notifications') }}">Notifications</a>
 									</li>
 									<li>
 									<a href="{{ route('logout') }}" onclick="event.preventDefault();

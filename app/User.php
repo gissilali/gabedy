@@ -39,4 +39,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Post', 'likes', 'user_id', 'comment_id')->withTimeStamps();
     }
 
+    /**
+     * User can bookmark many Articles and a Articles can be bookmarked by many Users
+     * @return relationship gets all bookmarks for a user 
+     */
+    public function bookmarks(){
+        return $this->belongsToMany('App\Post', 'bookmarks', 'user_id', 'post_id')->withTimeStamps();
+    }
+
 }

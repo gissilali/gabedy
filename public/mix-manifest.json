@@ -2,5 +2,9 @@
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
   "/css/styles.css": "/css/styles.css",
-  "/css/bootstrap-mods.css": "/css/bootstrap-mods.css"
+  "/css/bootstrap-mods.css": "/css/bootstrap-mods.css",
+  "/js/typeahead.js": "/js/typeahead.js",
+  "/css/toastr.css": "/css/toastr.css",
+  "/js/toastr.js": "/js/toastr.js",
+  "/js/moment.js": "/js/moment.js"
 }

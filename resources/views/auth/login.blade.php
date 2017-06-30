@@ -57,3 +57,6 @@
         </div>
     </div>
 @endsection
+@section('title')
+    Login to Gabedy
+@endsection

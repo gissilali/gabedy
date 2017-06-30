@@ -1,0 +1,28 @@
+.content{
+	background: white;
+    position:relative;
+    z-index:8500;
+    width: 100%;
+  	padding:100px 0;
+    min-height:100vh;
+}
+.section-title{
+	font-weight: 600;
+	text-transform:uppercase;
+	text-align:center;
+	&:after{
+		background:rgba(0,0,0,0.4);
+		content: "";
+	    height: 1px;
+	    width: 50px;
+	    position: absolute;
+	    bottom: 0;
+	    left: 50%;
+	    margin-left: -25px;
+	}
+}
+.section-heading{
+	padding-top:40px;
+	padding-bottom:10px;
+	position:relative;
+}

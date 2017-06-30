@@ -1,90 +1,64 @@
-.slideout{
-	width:0vw;
-	height:100vh;
-	overflow:auto;
-	position:fixed;
-	z-index:10000;
-	background:white;
-	max-width:300px;
-	-webkit-box-shadow: 12px 0px 12px -8px rgba(0,0,0,0.2);
-	-moz-box-shadow: 12px 0px 12px -8px rgba(0,0,0,0.2);
-	box-shadow: 12px 0px 12px -8px rgba(0,0,0,0.2);
-	border-right: 1px solid rgba(0,0,0,0.2);
-	transition:all 300ms;
-	margin-left:-100%;
-	@media (min-width:768px){
-		display:none;
-	}
+#menu{
+	background: white;
+	border:1px solid #d3e0e9;
 }
-.slideout.slideout-open{
-	width:90vw;
-	height:100vh;
-	transition:all 300ms;
-	margin-left:0;
-}
-.slideout-header{
-	border-bottom:1px solid rgba(0,0,0,0.2);
-	padding:30px;
-	width:100%;
-	position:relative;
+.slideout-menu-customizer{
 	.close-button{
-		position:absolute;
-		right:10px;
-		top:10px;
-		border:none;
-		background:none;
-		color:$gabedi-green;
-	}
-}
-.profile-pic{
-	border-radius:50%;
-	height:40px;
-	width:40px;
-	background:gold;
-	display:block;
-	float:left;
-}
-.user-details{
-	display:block;
-	float:left;
-	padding-left:20px;
-	p{
-		margin:0;
-		font-size:12px;
-	}
-}
-.slideout-body,.slideout-footer{
-	padding:20px;
-	.list-group{
-		.list-group-item{
-			border:none;
-			padding:5px 20px;
-			a{
-				text-transform:uppercase;
-				padding:20px;
-				color:$gabedi-green;
-				i,strong{
-					padding:10px;
-				}
-			}
-			.main-menu{
-
-			}
-			.sub-menu{
-				font-size:11px;
-				font-weight: bold;
-				height:0;
-				overflow:hidden;
-				transition:all 300ms;
-				li{
-					display:block;
-					padding:15px 0;
-				}
-			}
-			.sub-menu.open{
-				height:auto;
-				transition:all 300ms;
+			float: right;
+		}
+	.__slideout-header{
+		.profile-img{
+			width:30px;
+			height:30px;
+		}
+		.user-details{
+			padding-top:10px;
+			p{
+				margin:0;
 			}
 		}
+		.auth-links{
+			margin:0;
+			padding:0;
+			li{
+				border-radius: 1px;
+				a{
+					font-weight:strong;
+					width:100%;
+				}
+			}
+		}
+	}
+	.__menu-links{
+		border-radius:0;
+		color: $gabedi-green;
+		i{
+			margin-right:5px;
+		}
+		a{
+			padding-left:5px;
+			color: $gabedi-green;
+			text-decoration: none;
+			font-weight: bold;
+			&:hover{
+				text-decoration:none;
+			}
+		}
+	}
+	.sub-menu{
+		height:0;
+		overflow:hidden;
+		padding:0;
+		margin:0;
+		padding-top: 8px;
+		li{
+			border-radius: 1px;
+			a{
+				text-transform: lowercase;
+			}
+		}
+	}
+	.sub-menu.open{
+		height:auto;
 	}
 }

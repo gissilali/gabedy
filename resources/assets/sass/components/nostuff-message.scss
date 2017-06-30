@@ -1,0 +1,13 @@
+.no-stuff{
+	background: rgba($gabedi-main, 0.3);
+	border:1px dashed $gabedi-main;
+	padding:50px 20px;
+	width:80%;
+	margin-left:10%;
+	margin-right: 10%;
+	text-align:center;
+	border-radius: 10px;
+	.title-text,.subtitle-text{
+		color:rgba($gabedi-main,0.7);
+	}
+}

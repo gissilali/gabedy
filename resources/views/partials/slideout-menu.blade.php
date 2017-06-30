@@ -1,38 +1,60 @@
-<div class="slideout">
-	<div class="slideout-header clearfix">
-		<div class="profile-pic">
-			
-		</div>
-		<div class="user-details">
-			<button class="close-button"><i class="fa fa-times"></i></button>
-			<p><strong>Jayden Wafush</strong></p>
-			<p>jay@mail.com</p>
-		</div>
-	</div>
-	<div class="slideout-body" style="border-bottom: 1px solid rgba(0,0,0,0.12)">
+<div id="menu" style="">
+	<div class="slideout-menu-customizer">
 		<ul class="list-group">
-			<li class="list-group-item"><a href=""><i class="fa fa-home"></i><strong><small>home</small></strong></a></li>
-			<li class="list-group-item"><a href=""><i class="fa fa-bookmark"></i><strong><small>my bookmarks</small></strong></a></li>
-			<li class="list-group-item">
-				<a href="" class="main-menu"><i class="fa fa-list"></i><strong><small>Categories</small></strong><span class="caret"></span></a>
+			<li class="clearfix list-group-item">
+				<button class="btn close-button fa fa-times __btn-blue"></button>
+			</li>
+			@if (Auth::check())
+				<li class="clearfix list-group-item">
+					<div class="__slideout-header">
+						<div class="image-wrapper">
+							<div class="profile-img" style="background-image:url({{ asset('../images/default.png') }});background-size:cover;">
+							</div>
+	    				<div class="user-details">
+	    					<p class="name"><strong>Maria</strong></p>
+	    					<p class="email">maria@mail.com</p>
+	    				</div>
+					</div>
+				</li>
+			@else
+				<li class="clearfix list-group-item">
+					<div class="__slideout-header">
+						<ul class="auth-links">
+							<li class="list-group-item"><a href="{{ url('login') }}" class="btn __btn __btn-cta __btn-green">login</a></li>
+							<li class="list-group-item"><a href="{{ url('register') }}" class="btn __btn __btn-cta __btn-blue">register</a></li>
+						</ul>
+					</div>
+				</li>
+			@endif
+			<li class="clearfix list-group-item __menu-links">
+				<i class="fa fa-home"></i><a href="{{ url('/') }}">Home</a>
+			</li>
+			<li class="clearfix list-group-item __menu-links main-menu">
+				<i class="fa fa-list"></i><a href="">Articles <span class="caret"></span></a>
 				<ul class="sub-menu">
-					<li><a href="#">Life</a></li>
-					<li><a href="#">Technology</a></li>
-					<li><a href="#">Art</a></li>
-					<li><a href="">Stuff</a></li>
-					<li><a href="">Politics</a></li>
-					<li><a href="">Archives</a></li>
+					<li class="list-group-item"><a href="{{ url('category/all') }}">All</a></li>
+					@foreach ($categories as $category)
+						<li class="list-group-item"><a href="{{ url('category/'.$category->slug.'/'.$category->id) }}">{{ $category->name }}</a></li>
+					@endforeach
 				</ul>
 			</li>
-			<li class="list-group-item clearfix"><a href=""><i class="fa fa-bell"></i><strong><small>notifications <span class="label" style="background: orange">3</span></small></strong></a></li>
-			<li class="list-group-item"><a href=""><i class="fa fa-cog"></i><strong><small>settings</small></strong></a></li>
-			<li class="list-group-item"><a href=""><i class="fa fa-power-off"></i><strong><small>logout</small></strong></a></li>
-		</ul>
-	</div>
-	<div class="slideout-footer">
-		<ul class="list-group">
-			<li class="list-group-item"><a href=""><i class="fa fa-archive"></i><strong><small>archives</small></strong></a></li>
-			<li class="list-group-item"><a href=""><i class="fa fa-eye"></i><strong><small>browse articles</small></strong></a></li>
+			@if (Auth::check())
+				<li class="clearfix list-group-item __menu-links">
+				<i class="fa fa-bookmark"></i><a href="#">My Bookmarks</a>
+				<span class="badge" style="background: orange"><small>coming soon</small></span>
+			</li>
+				<li class="clearfix list-group-item __menu-links">
+					<i class="fa fa-bell"></i><a href="#">Notifications</a>
+					<span class="badge" style="background: orange"><small>coming soon</small></span>
+				</li>
+				<li class="clearfix list-group-item __menu-links">
+				<i class="fa fa-power-off"></i><a href="#" onclick="event.preventDefault();
+				document.getElementById('logout-form').submit();">Logout</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                      </form>
+			</li>
+			@endif
 		</ul>
 	</div>
 </div>

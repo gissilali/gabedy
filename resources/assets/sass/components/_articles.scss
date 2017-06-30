@@ -5,6 +5,13 @@
 		height:auto;
 	}
 }
+.article-cta{
+	.bookmark-button{
+		color: $gabedi-green;
+		background: transparent;
+		border:1px solid transparent; 
+	}
+}
 .article-details{
 	margin-bottom:25px;
 	font-family: 'Roboto' Light;
