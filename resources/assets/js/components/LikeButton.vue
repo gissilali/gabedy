@@ -39,9 +39,10 @@
 
 		methods: {
 			like(commentId){
-				var context = this;
-				axios.post('/like/'+commentId)
-				.then(function(response){
+				if (loggedIn) {
+					var context = this;
+					axios.post('/like/'+commentId)
+					.then(function(response){
 					if(response.data == true){
 						context.countLikes();
 						context.liked = true;
@@ -50,12 +51,16 @@
 				.catch(function(error){
 
 				});
+				} else {
+					Event.$emit('open-authentication-modal');
+				}
 			},
 
 			unLike(commentId){
-				var context = this;
-				axios.post('/unlike/'+commentId)
-				.then(function(response){
+				if (loggedIn) {
+					var context = this;
+					axios.post('/unlike/'+commentId)
+					.then(function(response){
 					if(response.data == false){
 						context.countLikes();
 						context.liked = false;
@@ -64,6 +69,9 @@
 				.catch(function(error){
 
 				});
+				} else {
+					Event.$emit('open-authentication-modal');
+				}
 			},
 
 			countLikes(){

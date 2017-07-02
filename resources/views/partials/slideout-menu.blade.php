@@ -11,8 +11,8 @@
 							<div class="profile-img" style="background-image:url({{ asset('../images/default.png') }});background-size:cover;">
 							</div>
 	    				<div class="user-details">
-	    					<p class="name"><strong>Maria</strong></p>
-	    					<p class="email">maria@mail.com</p>
+	    					<p class="name"><strong>{{ Auth::user()->name }}</strong></p>
+	    					<p class="email">{{ Auth::user()->email }}</p>
 	    				</div>
 					</div>
 				</li>
@@ -20,8 +20,8 @@
 				<li class="clearfix list-group-item">
 					<div class="__slideout-header">
 						<ul class="auth-links">
-							<li class="list-group-item"><a href="{{ url('login') }}" class="btn __btn __btn-cta __btn-green">login</a></li>
-							<li class="list-group-item"><a href="{{ url('register') }}" class="btn __btn __btn-cta __btn-blue">register</a></li>
+							<li class="list-group-item"><a href="{{ url('login') }}" class="btn __btn __btn-cta __btn-green btn-sm"><strong>login</strong></a></li>
+							<li class="list-group-item"><a href="{{ url('register') }}" class="btn __btn __btn-cta __btn-blue btn-sm"><strong>register</strong></a></li>
 						</ul>
 					</div>
 				</li>
@@ -40,8 +40,7 @@
 			</li>
 			@if (Auth::check())
 				<li class="clearfix list-group-item __menu-links">
-				<i class="fa fa-bookmark"></i><a href="#">My Bookmarks</a>
-				<span class="badge" style="background: orange"><small>coming soon</small></span>
+				<i class="fa fa-bookmark"></i><a href="{{ url('my-bookmarks') }}">My Bookmarks</a>
 			</li>
 				<li class="clearfix list-group-item __menu-links">
 					<i class="fa fa-bell"></i><a href="#">Notifications</a>
@@ -55,6 +54,12 @@
                                       </form>
 			</li>
 			@endif
+			<li class="clearfix list-group-item __menu-links">
+				<i class="fa fa-info"></i><a href="{{ url('about') }}">About Us</a>
+			</li>
+			<li class="clearfix list-group-item __menu-links">
+				<i class="fa fa-question"></i><a href="{{ url('help') }}">Help</a>
+			</li>
 		</ul>
 	</div>
 </div>

@@ -11,18 +11,14 @@
 				<div class="logo">
 					<img src="{{ asset('logo.svg') }}" alt="logo">
 				</div>
-				<form action="search" method="get">
-					<div class="search-bar clearfix pull-right search-bar-mobile">
-					<div class="search-wrapper clearfix">
-						<div class="button">
-							<button class="btn search-btn"><i class="fa fa-search"></i></button>
-						</div>
-
-						<div class="input hide-input">
-							<input type="text" name="q" id="search" placeholder="search articles">
-						</div>
-					</div>
-				</div>
+				<form action="{{ url('search') }}" method="get" class="typeahead search-bar-mobile">
+					{{ csrf_field() }}
+					 <div class="input-group __search-bar-margin-top">
+				      <input type="text" class="form-control typeahead-search search" placeholder="Search for...">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button" style="border:none;color:#2AB27B"><i class="fa fa-search"></i></button>
+				      </span>
+				    </div>
 				</form>
 			</div>
 
@@ -37,25 +33,15 @@
 				<ul class="nav navbar-nav pull-right links">
 
 						<li>
-							<article-search inline-template>
-								<form action="{{ url('search') }}" method="get">
-								<div class="search-bar clearfix">
-									<div class="search-wrapper clearfix">
-										<div class="button">
-											<button class="btn search-btn"><i class="fa fa-search"></i></button>
-										</div>
-
-										<div class="input hide-input">
-											<input type="text" name="q" id="search" placeholder="search articles" v-model="query" @keyup="sendSearchRequest" autocomplete="off">
-										</div>
-									</div>
-									
-									<ul class="search-suggestion list-group" v-if="resultsAvailable">
-										<li class="list-group-item" v-for="result in results"><a v-bind:href="postURL(result.slug, result.id)">@{{ result.title }}</a></li>
-									</ul>
-								</div>
+							<form action="{{ url('search') }}" method="get" class="typeahead">
+								{{ csrf_field() }}
+								 <div class="input-group __search-bar-margin-top">
+							      <input type="text" class="form-control typeahead-search search" placeholder="Search for...">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default" type="button" style="border:none;color:#2AB27B"><i class="fa fa-search"></i></button>
+							      </span>
+							    </div>
 							</form>
-							</article-search>
 						</li>
 
 						<li class="dropdown __dropdown">
@@ -67,7 +53,6 @@
 								@endforeach
 							</ul>
 						</li>
-						<li><a href="{{ url('login') }}">Login</a></li>
 						@if (Auth::check())
 							<li class="dropdown __dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -95,6 +80,9 @@
 									<a href="{{ url('notifications') }}">Notifications</a>
 									</li>
 									<li>
+									<a href="{{ url('my-bookmarks/') }}">My Bookmarks</a>
+									</li>
+									<li>
 									<a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Log out</a>
 									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -103,6 +91,8 @@
 									</li>
 								</ul>
 							</li>
+						@else
+							<li><a href="{{ url('login') }}">Login</a></li>
 						@endif
 				</ul>
 			</div>

@@ -18,7 +18,7 @@ class LikesController extends Controller
      */
     public function storeLike(Request $request, $comment_id)
     {
-        $user = User::find(1);
+        $user = Auth::user();
         $user->likes()->attach($comment_id);
         return response('true', 200);
     }
@@ -31,7 +31,7 @@ class LikesController extends Controller
      */
     public function deleteLike($comment_id)
     {
-        User::find(1)->likes()->detach($comment_id);
+        Auth::user()->likes()->detach($comment_id);
         return response('false', 200);
     }
 
@@ -42,7 +42,7 @@ class LikesController extends Controller
      */
     
     public function liked($comment_id){
-         $likes = Like::where('user_id', User::find(1)->id)->where('comment_id', $comment_id)->first();
+         $likes = Like::where('user_id', Auth::user()->id)->where('comment_id', $comment_id)->first();
          if(count($likes) > 0){
             return response('true', 200);
          }

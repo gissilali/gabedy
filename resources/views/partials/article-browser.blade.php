@@ -30,10 +30,12 @@
 										<div class="article-cta">
 										{{-- Extract styles to external --}}
 											<a href="{{ url('read/'.$post->slug.'/'.$post->id) }}" class="btn __btn __btn-cta __btn-blue-outline" style="font-weight:600;min-width:150px;">Read more</a>
-											<bookmark-button  :post-id="{{ $post->id }}" inline-template>
+											<transition name="slide">
+												<bookmark-button  :post-id="{{ $post->id }}"  inline-template>
 												<button class="fa fa-bookmark bookmark-button" v-if="bookmarked"></button>
 												<a class="btn __btn __btn-cta __btn-green" style="font-weight:600;min-width:150px;" @click.prevent="bookmark({{ $post->id }})" v-else > Read later </a>
 											</bookmark-button>
+											</transition>
 										</div>
 									</article>
 								@endforeach

@@ -11,7 +11,7 @@
 		padding: 5px 0 5px 15px;
 	}
 	.__navbar{
-		background:transparent;
+		background:$gabedi-green;
 		border:none;
 		margin-top:8px;
 		.links{
@@ -101,6 +101,7 @@
 		.search-wrapper{
 			background:darken($gabedi-green, 10%);
 			margin-bottom:5px;
+			height:40px;
 		}
 		.input{
 			float:right;

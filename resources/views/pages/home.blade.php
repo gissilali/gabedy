@@ -3,7 +3,7 @@
 	{{-- Extract this header to a partial file --}}
 	@include('partials.header')
 	<section style="">
-		<div class="container" style="padding-top:70px">
+		<div class="container" style="padding-top:100px">
 			<h1><strong>Welcome to your homepage</strong></h1>
 			<p>See your bookmarked articles, discover new articles and find tutors</p>
 			<div class="col-md-8" style="padding-bottom:20px">

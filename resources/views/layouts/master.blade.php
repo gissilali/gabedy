@@ -13,13 +13,16 @@
 	<link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/loading.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/loading-btn.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/typeahead.css') }}">
 	<script>
 		var loggedIn = {{ auth()->check() ? 'true' : 'false' }};
+		var modalClosed = false
 	</script>
 </head>
 <body>
 	<div id="app">
-		<auth-modal inline-template>
+		<transition name="slide">
+			<auth-modal inline-template>
 			<div class="auth-modal" :class="{ hide:modalClosed }" v-if="openModal">
 				<div class="form-page-centering">
 					<div class="container">
@@ -53,6 +56,7 @@
 				</div>
 			</div>
 		</auth-modal>
+		</transition>
 		@include('partials.slideout-menu')
 		<div id="panel">
 			@yield('content')
@@ -97,5 +101,45 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	{{-- Extract this conditions to a toastr.blade --}}
 	@include('messages.messages')
+	<script src="{{ url('js/typeahead.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			var engine = new Bloodhound({
+		        remote: {
+		            url: '/search?q=%QUERY%',
+		            wildcard: '%QUERY%'
+		        },
+		        datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+		        queryTokenizer: Bloodhound.tokenizers.whitespace
+		    });
+			$('.typeahead-search').typeahead({
+			    hint: true,
+			    highlight: true,
+			    minLength: 1
+			},
+			{
+		        source: engine.ttAdapter(),
+
+		        // This will be appended to "tt-dataset-" to form the class name of the suggestion menu.
+		        name: 'postsList',
+		        displayKey: 'title',
+		        // the key from the array we want to display (name,id,email,etc...)
+		        templates: {
+		            empty: [
+		                '<div class="search-results-dropdown"><div class="">Nothing found.</div></div>'
+		            ],
+		            header: [
+		                '<div class="search-results-dropdown">'
+		            ],
+		            suggestion: function (data) {
+		            	console.log(data);
+		            	var postURL = appDomain+'read/'+data.slug+'/'+data.id; 
+		                // return '<a href="' + postURL + '" class="">' + data.title + '</a>';
+		                return '<li class="list-group-item"><a href="' + postURL + '" class="">' + data.title + '</a></li>'
+		      }
+        }
+    });
+		});
+	</script>
 </body>
 </html>

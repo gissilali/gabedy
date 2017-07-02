@@ -17297,22 +17297,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		like: function like(commentId) {
-			var context = this;
-			axios.post('/like/' + commentId).then(function (response) {
-				if (response.data == true) {
-					context.countLikes();
-					context.liked = true;
-				}
-			}).catch(function (error) {});
+			if (loggedIn) {
+				var context = this;
+				axios.post('/like/' + commentId).then(function (response) {
+					if (response.data == true) {
+						context.countLikes();
+						context.liked = true;
+					}
+				}).catch(function (error) {});
+			} else {
+				Event.$emit('open-authentication-modal');
+			}
 		},
 		unLike: function unLike(commentId) {
-			var context = this;
-			axios.post('/unlike/' + commentId).then(function (response) {
-				if (response.data == false) {
-					context.countLikes();
-					context.liked = false;
-				}
-			}).catch(function (error) {});
+			if (loggedIn) {
+				var context = this;
+				axios.post('/unlike/' + commentId).then(function (response) {
+					if (response.data == false) {
+						context.countLikes();
+						context.liked = false;
+					}
+				}).catch(function (error) {});
+			} else {
+				Event.$emit('open-authentication-modal');
+			}
 		},
 		countLikes: function countLikes() {
 			var context = this;

@@ -93,3 +93,9 @@ Route::get('subscribe', 'Interactions\MailSubscriptionController@showSubscriptio
 Route::get('settings/{user_id}', 'UserAccount\AccountController@showSettingsForm');
 Route::post('edit/profile/{user_id}', 'UserAccount\AccountController@updateProfile');
 Route::post('change/password/{user_id}', 'UserAccount\AccountController@updatePassword');
+/**
+ * My Bookmarks 
+ * 
+ */
+Route::get('my-bookmarks', 'Interactions\BookmarksController@viewBookmarks');
+Route::post('remove-bookmarks/{post_id}/', 'Interactions\BookmarksController@undoBookmark');

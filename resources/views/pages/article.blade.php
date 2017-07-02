@@ -31,7 +31,7 @@
 							<form action="{{ url('respond-to/'.$post->slug.'/'.$post->id) }}" method="post" @submit.prevent="onSubmit('{{ $post->slug }}',{{ $post->id }})" >
 								{{ csrf_field() }}
 								<div class="form-group">
-									<textarea name="body" id="body" cols="30" rows="5" class="form-control __textarea" v-model="commentBody"></textarea>
+									<textarea name="body" id="comment-area" cols="30" rows="5" class="form-control __textarea" v-model="commentBody"></textarea>
 								</div>
 								<transition name="slide">
 									<div class="form-group" v-if="commentValid">
@@ -72,4 +72,17 @@
 			</div>
 		</div>
 	</div>
+@endsection
+@section('tinymce')
+	<script src="{{ asset('assets/js/tinymce/tinymce.min.js') }}"></script>
+	<script>
+		tinymce.init({
+			selector: '#comment-area',
+			height: 200,
+			menubar: false,
+		  	toolbar: 'undo redo | insert | styleselect | bold italic | alignleft | bullist numlist outdent indent | link image',
+		    content_css: [
+		    '{{ asset('css/content.min.css') }}']
+		});
+	</script>
 @endsection
