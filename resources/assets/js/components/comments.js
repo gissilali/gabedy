@@ -42,6 +42,15 @@ var commentOptions = {
 			} else {
 				return true;
 			}
+		},
+
+		shouldLoadMore(comments){
+			var comments = this.countProperties(comments);
+			if (comments > 5) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	},
 
@@ -94,7 +103,7 @@ var commentOptions = {
 			.then(function (response) {
 				context.comments = response.data.data;
 				context.paginator.currentPage += 1;
-				if (context.paginator.currentPage == context.paginator.lastPage) {
+				if (context.paginator.currentPage > context.paginator.lastPage) {
 					context.paginator.lastPageReached = true;
 					context.isLoadingMore = false;
 					return;
@@ -104,7 +113,17 @@ var commentOptions = {
 			.catch(function (error) {
 			    console.log(error);
 			});
-		}
+		},
+
+		countProperties(obj) {
+			    var count = 0;
+			    for(var prop in obj) {
+			        if(obj.hasOwnProperty(prop))
+			            ++count;
+			    }
+			    return count;
+			}
+
 	},
 
 	filters: {

@@ -12,14 +12,58 @@
 								<div class="article-details">
 									<span>By {{ $post->author->name }}</span>
 									<span>/</span>
-									<span>2 min read</span>
+									<span><strong><small>{{ App\Post::readtime($post->body) }}</small></strong></span>
 									<span>/</span>
-									<span>Add Comment</span>
+									<span>{{ $post->updated_at->toFormattedDateString() }}</span>
 								</div>
+								@if ($post->image=='' || $post->image==NULL)
+								@else
+									<div class="article-image">
+										<img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title.' image' }}" style="font-weight: bold;color:#2AB27B;text-align: center">
+									</div>
+								@endif
 								<div class="article-content">
 									{!! $post->body !!}
 								</div>
 							</article>
+						</div>
+					</div>
+					<div class="suggested-posts row">
+						<div class="bookmark-section">
+							<div class="bookmark section-heading clearfix">
+								<h4><strong>Recommended articles</strong></h4>
+								
+							</div> 
+							<hr style="border-top:1px solid #D3E0E9;margin:0;margin-bottom:20px">
+							<div class="bookmark-grid">					
+								
+									@if (count($recommendations) > 0)
+										@foreach ($recommendations as $recommended_post)
+										<div class="col-md-6" style="padding-left:0">
+											<div class="bookmark-grid-item panel">
+										<a href="{{ url('read/'.$recommended_post->slug.'/'.$recommended_post->id) }}" style="color:#333;">
+											<div class="panel-heading">
+												<h4><strong>{{ $recommended_post->title }}</strong></h4>
+											</div>
+											<div class="panel-body excerpt">
+
+													<p class="post-body" style="background: transparent !important;font-size: 16px !important; font-weight: normal !important">{!! Illuminate\Support\Str::words($recommended_post->body,25) !!}</p>
+											</div>
+										</a>
+										<div class="panel-footer clearfix">
+											<div class="bookmark-details">
+												<small class="author"><strong>{{ App\User::find($recommended_post->author_id)->name }}</strong></small><span class="dot-separator">.</span><span><small>{{ $post->updated_at->toFormattedDateString() }}</small></span><span class="dot-separator">.</span><span><small>{{ App\Post::readtime($recommended_post->body) }}</small></span>
+											</div>
+											<button class="btn-bookmark"><i class="fa fa-bookmark"></i></button>
+										</div>
+									</div>
+									</div>
+										@endforeach
+									@else
+										
+									@endif
+									
+							</div>
 						</div>
 					</div>
 					<comment-section inline-template>
@@ -31,7 +75,7 @@
 							<form action="{{ url('respond-to/'.$post->slug.'/'.$post->id) }}" method="post" @submit.prevent="onSubmit('{{ $post->slug }}',{{ $post->id }})" >
 								{{ csrf_field() }}
 								<div class="form-group">
-									<textarea name="body" id="comment-area" cols="30" rows="5" class="form-control __textarea" v-model="commentBody"></textarea>
+									<textarea name="body" id="comment-area" cols="30" rows="5" class="form-control __textarea" v-model="commentBody" @keydown.enter.prevent="onSubmit('{{ $post->slug }}',{{ $post->id }})"></textarea>
 								</div>
 								<transition name="slide">
 									<div class="form-group" v-if="commentValid">
@@ -44,7 +88,7 @@
 							<transition-group name="slide">
 								<div class="panel panel-default comment-panel" v-for="comment in comments" v-bind:key="comment">
 								<div class="panel-heading clearfix">
-									<div class="profile-img" style="background-image:url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50);background-size:cover">
+									<div class="profile-img" style="background-image:url(https://www.gravatar.com/avatar/205e460b479e2e8b48aec07710c08d50);background-size:cover">
 									</div>
 									<div class="user-details">
 										<p class="name"><strong>@{{ comment.user.name }}</strong></p>
@@ -61,7 +105,7 @@
 								</div>
 							</div>
 							</transition-group>
-							<button class="btn __btn __btn-blue __btn-cta ld-ext-right" :class="{ 'running': isLoadingMore }" @click="loadMore({{ $post->id }})">load more <div class="ld ld-ring ld-spin"></div></button>
+							<button class="btn __btn __btn-blue __btn-cta ld-ext-right" :class="{ 'running': isLoadingMore }" @click="loadMore({{ $post->id }})" v-if="shouldLoadMore">load more <div class="ld ld-ring ld-spin"></div></button>
 							<transition name="slide">
 								<span class="badge" v-if="paginator.lastPageReached" style="background: orange">no more comments</span>
 							</transition>
@@ -85,4 +129,7 @@
 		    '{{ asset('css/content.min.css') }}']
 		});
 	</script>
+@endsection
+@section('title')
+	{{ $post->title }}
 @endsection

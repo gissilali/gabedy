@@ -66,13 +66,7 @@ Route::get('is-liked/{comment_id}', 'Interactions\LikesController@liked');
 Route::get('likes-count/{comment_id}', 'Interactions\LikesController@likesCount');
 Route::post('like/{comment_id}', 'Interactions\LikesController@storeLike');
 Route::post('unlike/{comment_id}', 'Interactions\LikesController@deleteLike');
-/**
- *
- * Bookmark routes
- * 
- */
-Route::post('bookmark/{comment_id}', 'Interactions\BookmarksController@storeBookmark');
-Route::get('is-bookmarked/{comment_id}', 'Interactions\BookmarksController@bookmarked');
+
 /**
  *
  * Search routes
@@ -97,5 +91,12 @@ Route::post('change/password/{user_id}', 'UserAccount\AccountController@updatePa
  * My Bookmarks 
  * 
  */
-Route::get('my-bookmarks', 'Interactions\BookmarksController@viewBookmarks');
+Route::get('my-bookmarks/{post_id}', 'Interactions\BookmarksController@viewBookmarks');
 Route::post('remove-bookmarks/{post_id}/', 'Interactions\BookmarksController@undoBookmark');
+/**
+ *
+ * Bookmark routes
+ * 
+ */
+Route::post('bookmark/{comment_id}', 'Interactions\BookmarksController@storeBookmark');
+Route::get('is-bookmarked/{comment_id}', 'Interactions\BookmarksController@bookmarked');

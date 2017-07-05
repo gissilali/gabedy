@@ -6,7 +6,9 @@
                 <div class="form-container">
                     <div class="form-logo-heading clearfix">
                         <div class="logo-container">
-                            <img src="logo.svg" alt="gabedy-logo">  
+                            <a href="{{ url('/') }}">
+                                <img src="logo.svg" alt="gabedy-logo">  
+                            </a>
                         </div>
                     </div>
                     <form action="{{ url('subscribe') }}" method="post">

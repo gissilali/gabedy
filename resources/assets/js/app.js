@@ -15,7 +15,7 @@ import updateProfileOptions from './components/updateProfile';
 require('./bootstrap');
 
 window.Vue = require('vue');
-window.appDomain = 'http://localhost:8000/';
+window.appDomain = 'http://gabedy.com/';
 window.Event = new Vue();
 Vue.use(require('vue-moment'));
 /**

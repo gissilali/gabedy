@@ -31,9 +31,14 @@ class MailSubscriptionController extends Controller
     }
 
     public function sendEmail($user) {
-        $message = Post::whereSlug('welcome-email')->first();
-        Mail::to($user)->send(new WelcomeToGabedi($message));
-        Session::flash('email_sent', ''.$user->email);
+        try {
+            $message = Post::whereSlug('welcome-email')->first();
+            Mail::to($user)->send(new WelcomeToGabedi($message));
+            Session::flash('email_sent', ''.$user->email);
+        } catch (\Swift_TransportException $e) {
+            Session::flash('failed_to_send_email', 'failed to send email to '.$user->email);
+            return back();
+        }
     }
 
     public function unsubscribe() {

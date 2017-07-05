@@ -20,7 +20,7 @@
 	@include('partials.article-browser')
 @endsection
 @section('title')
-	gabedy.com
+	Welcome to gabedy.com
 @endsection
 @section('footer')
 	@include('partials.footer')

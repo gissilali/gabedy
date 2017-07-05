@@ -17,8 +17,8 @@
 	</section>
 	<div id="our-story"></div>
 	<section class="jumbotron jumbotron-fluid" >
-		<div class="container">
-			<div class="col-xs-10 col-xs-offset-1">
+		<div class="container about-us-margin-bottom">
+			<div class="col-sm-10 col-sm-offset-1 col-xs-12">
 				<div class="panel-section panel">
 					<h3 class="title">{{ $article->title }}</h3>
 					<div class="text-justify clearfix">
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-10 col-xs-offset-1">
+			<div class="col-sm-10 col-sm-offset-1 col-xs-12">
 				<div id="contact-us"></div>
 				<div class="panel-section panel">
 					<h3>Talk to us</h3>

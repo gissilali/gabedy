@@ -41,4 +41,14 @@ class Post extends Model
         return $this->belongsTo('App\Post');
     }
 
+    public static function readtime($text){
+        $words = str_word_count(strip_tags($text));
+        $min = floor($words / 200);
+        if ($min == 0) {
+            return '1 minute read';
+        }
+
+        return $min.' minute read';
+    }
+
 }

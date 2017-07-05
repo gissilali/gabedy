@@ -16368,7 +16368,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __webpack_require__(149);
 
 window.Vue = __webpack_require__(174);
-window.appDomain = 'http://localhost:8000/';
+window.appDomain = 'http://gabedy.com/';
 window.Event = new Vue();
 Vue.use(__webpack_require__(170));
 /**
@@ -17571,6 +17571,14 @@ var commentOptions = {
 			} else {
 				return true;
 			}
+		},
+		shouldLoadMore: function shouldLoadMore(comments) {
+			var comments = this.countProperties(comments);
+			if (comments > 5) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	},
 
@@ -17615,7 +17623,7 @@ var commentOptions = {
 			axios.get(appDomain + 'get-comments/' + postId + '/' + numberOfComments).then(function (response) {
 				context.comments = response.data.data;
 				context.paginator.currentPage += 1;
-				if (context.paginator.currentPage == context.paginator.lastPage) {
+				if (context.paginator.currentPage > context.paginator.lastPage) {
 					context.paginator.lastPageReached = true;
 					context.isLoadingMore = false;
 					return;
@@ -17624,6 +17632,13 @@ var commentOptions = {
 			}).catch(function (error) {
 				console.log(error);
 			});
+		},
+		countProperties: function countProperties(obj) {
+			var count = 0;
+			for (var prop in obj) {
+				if (obj.hasOwnProperty(prop)) ++count;
+			}
+			return count;
 		}
 	},
 
@@ -17709,7 +17724,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	var submenuClosed = true;
-	$('.main-menu').click(function (event) {
+	$('.main-menu-toggle').click(function (event) {
 		event.preventDefault();
 		if (submenuClosed) {
 			submenuClosed = false;

@@ -19,12 +19,15 @@
 							
 						<div class="col-md-6" style="padding-left:0">
 							<div class="bookmark-grid-item panel">
-								<div class="panel-heading">
+								<a href="{{ url('read/'.$bookmark->post->slug.'/'.$bookmark->post->id) }}">
+									<div class="panel-heading">
 									<h4><strong>{{ $bookmark->post->title }}</strong></h4>
-								</div>
-								<div class="panel-body excerpt">
-									<p class="post-body" style="background: transparent !important;font-size: 16px !important; font-weight: normal !important">{!! Illuminate\Support\Str::words($bookmark->post->body,25) !!}</p>
-								</div>
+									</div>
+									<div class="panel-body excerpt">
+										<p class="post-body" style="background: transparent !important;font-size: 16px !important; font-weight: normal !important">{!! Illuminate\Support\Str::words($bookmark->post->body,25) !!}
+										</p>
+									</div>
+								</a>
 								<div class="panel-footer clearfix">
 									<div class="bookmark-details">
 										<small class="author"><strong>{{ App\User::find($bookmark->post->author_id)->name }}</strong></small><span class="dot-separator">.</span><span><small>Jun 8</small></span><span class="dot-separator">.</span><span><small>3 min read</small></span>

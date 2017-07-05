@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 	var submenuClosed = true;
-	$('.main-menu').click(function(event){
+	$('.main-menu-toggle').click(function(event){
 		event.preventDefault();
 		if (submenuClosed) {
 			submenuClosed = false;

@@ -30,7 +30,7 @@
 				<i class="fa fa-home"></i><a href="{{ url('/') }}">Home</a>
 			</li>
 			<li class="clearfix list-group-item __menu-links main-menu">
-				<i class="fa fa-list"></i><a href="">Articles <span class="caret"></span></a>
+				<i class="fa fa-list"></i><a href="#" class="main-menu-toggle">Articles <span class="caret"></span></a>
 				<ul class="sub-menu">
 					<li class="list-group-item"><a href="{{ url('category/all') }}">All</a></li>
 					@foreach ($categories as $category)

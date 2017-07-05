@@ -12,7 +12,7 @@ class PageController extends Controller
     }
 
     public function landing(){
-        $posts = Post::whereStatus('published')->with('author')->get();
+        $posts = Post::whereStatus('published')->orderBy('updated_at', 'desc')->with('author')->paginate();
     	return view('pages.landing', compact('posts'));
     }
 
@@ -48,6 +48,7 @@ class PageController extends Controller
 
     public function article($slug, $post_id){
         $post = Post::where('id', $post_id)->with('comments')->with('author')->first();
-        return view('pages.article', compact('post'));
+        $recommendations = Post::where('id','!=',$post_id)->where('status', 'published')->where('category_id', $post->category_id)->paginate(2);
+        return view('pages.article', compact('post', 'recommendations'));
     }
 }

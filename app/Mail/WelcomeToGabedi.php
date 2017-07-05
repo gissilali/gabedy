@@ -8,9 +8,10 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Post;
 
-class WelcomeToGabedi extends Mailable
+class WelcomeToGabedi extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    // use Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $message;
 

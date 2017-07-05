@@ -14,14 +14,14 @@
 										<div class="article-details">
 											<span>By {{ $post->author->name }}</span>
 											<span>/</span>
-											<span>2 min read</span>
+											<span>{{ App\Post::readtime($post->body) }}</span>
 											<span>/</span>
-											<span>Add Comment</span>
+											<span>{{ $post->updated_at->toFormattedDateString() }}</span>
 										</div>
 										@if ($post->image=='' || $post->image==NULL)
 										@else
 											<div class="article-image">
-												<img src="{{ asset('images/clock-bg.jpg') }}" alt="">
+												<img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}" style="font-weight: bold;color:#2AB27B;text-align: center">
 											</div>
 										@endif
 										<div class="article-content">
@@ -39,6 +39,7 @@
 										</div>
 									</article>
 								@endforeach
+								{{ $posts->links() }}
 							@else
 								<div class="error-fullpage clearfix" style="min-height: 100vh; padding:80px 0">
 									<div class="col-md-4 col-md-offset-4 ">

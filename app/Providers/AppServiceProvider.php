@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer(['pages.home'], function($view){
-            $posts = Post::whereStatus('published')->with('author')->paginate(5);
+            $posts = Post::whereStatus('published')->orderBy('updated_at', 'desc')->with('author')->paginate(5);
             $view->with('posts', $posts);         
         });
         view()->composer(['pages.home'], function($view){

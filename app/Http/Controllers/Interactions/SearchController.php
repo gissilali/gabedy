@@ -12,9 +12,10 @@ class SearchController extends Controller
     {
         $query = $request->q;
         Post::where('status','pending')->orWhere('status', 'draft')->unsearchable();
+        Post::where('status','published')->searchable();
         $posts = Post::search($request->q)->get();
         if ($request->ajax()) {
-            return response($posts, 200);
+            return $posts;
         } else {
             return view('partials.search-results', compact('posts', 'query'));
         }

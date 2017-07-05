@@ -98,7 +98,8 @@
         slideout.close();
       });
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> --}}
+	<script src="{{ asset('js/toastr.js') }}"></script>
 	{{-- Extract this conditions to a toastr.blade --}}
 	@include('messages.messages')
 	<script src="{{ url('js/typeahead.js') }}"></script>
@@ -106,7 +107,7 @@
 		$(document).ready(function() {
 			var engine = new Bloodhound({
 		        remote: {
-		            url: '/search?q=%QUERY%',
+		            url: appDomain+'search?q=%QUERY%',
 		            wildcard: '%QUERY%'
 		        },
 		        datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
